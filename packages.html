@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - Dubai Pre Wedding Shoot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F6F3EC;
+            color: #000000;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+        .bg-custom-cream {
+            background-color: #F6F3EC;
+        }
+        #navbar {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .nav-hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
+
+    <!-- Navigation Bar (Optimized dark capsule for light-themed background) -->
+    <header id="navbar" class="fixed top-5 left-0 w-full z-50 px-6">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/90 border border-neutral-800 shadow-xl rounded-full px-6 lg:px-10 h-20 flex items-center justify-between text-white">
+            
+            <!-- Brand Logo -->
+            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
+                Dubai Pre Wedding Shoot
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium tracking-wide text-neutral-200">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="photography.html" class="hover:text-white transition-colors">Photography</a>
+                <a href="films.html" class="hover:text-white transition-colors">Films</a>
+                <a href="packages.html" class="text-white font-semibold underline underline-offset-4">Packages</a>
+                <a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-neutral-900/95 backdrop-blur-md border border-neutral-800 rounded-2xl px-6 py-6 space-y-4 shadow-xl text-white">
+            <a href="index.html" class="block text-base font-medium text-neutral-200 hover:text-white">Home</a>
+            <a href="photography.html" class="block text-base font-medium text-neutral-200 hover:text-white">Photography</a>
+            <a href="films.html" class="block text-base font-medium text-neutral-200 hover:text-white">Films</a>
+            <a href="packages.html" class="block text-base font-medium text-white font-semibold">Packages</a>
+            <a href="testimonials.html" class="block text-base font-medium text-neutral-200 hover:text-white">Testimonials</a>
+            <a href="blog.html" class="block text-base font-medium text-neutral-200 hover:text-white">Blog</a>
+            <a href="contact.html" class="block text-base font-medium text-neutral-200 hover:text-white">Contact</a>
+            <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-sm font-medium">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- SECTION: Unique Editorial Hero -->
+    <section class="pt-40 pb-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <p class="font-cursive text-4xl sm:text-5xl text-neutral-800">The Collection</p>
+            <h1 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight text-black uppercase">Tailored Experiences</h1>
+            <div class="w-16 h-0.5 bg-black/30 mx-auto mt-4"></div>
+        </div>
+    </section>
+
+    <!-- SECTION: Magazine Layout Package Grid -->
+    <main class="pb-28 px-6">
+        <div class="max-w-6xl mx-auto space-y-20">
+            
+            <!-- Package 1: The Classic Package (Left Image Frame, Right Content) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-8 sm:p-12 shadow-sm rounded-sm">
+                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Classic Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier I</div>
+                </div>
+                <div class="lg:col-span-7 space-y-6 lg:pl-6">
+                    <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black">The Classic Package</h3>
+                    <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
+                        Perfect for couples who want a beautiful and intimate pre-wedding experience in Dubai. A Classic Dubai Package typically spans 4 to 5 days and offers the perfect balance between the city's futuristic landmarks and traditional culture.
+                    </p>
+                    <div class="pt-4 border-t border-neutral-100">
+                        <p class="text-xs uppercase tracking-widest font-semibold text-black mb-3">Classic Inclusions:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-700 font-light">
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>Half Day Shoot at 2 Locations</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>1 Professional Photographer</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>1 Cinematic Video</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>20 Edited High-Res Photos</span></div>
+                            <div class="flex items-center space-x-2 sm:col-span-2"><span class="text-black font-bold">&#8212;</span> <span>Indian Travel Guide Included</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="contact.html" class="inline-block px-8 py-3 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">
+                            Select Classic Package
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2: The Premium Package (Reversed: Right Image Frame, Left Content - Dark Aesthetic) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-black text-white p-8 sm:p-12 shadow-2xl rounded-sm">
+                <div class="lg:col-span-7 space-y-6 lg:pr-6 order-2 lg:order-1">
+                    <span class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Most Sought After</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-normal text-white">The Premium Package</h3>
+                    <p class="text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
+                        Designed for high-end couples seeking absolute elegance and privacy, this elite tier covers extensive cinematic coverage, private transport, and styling support. Elevate your experience with extensive multi-location luxury coverage.
+                    </p>
+                    <div class="pt-4 border-t border-white/20">
+                        <p class="text-xs uppercase tracking-widest font-semibold text-white mb-3">Premium Inclusions:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-300 font-light">
+                            <div class="flex items-center space-x-2"><span class="text-white font-bold">&#8212;</span> <span>Full Day Shoot at 4 Locations</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-white font-bold">&#8212;</span> <span>2 Professional Photographers</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-white font-bold">&#8212;</span> <span>1 Cinematic Video &amp; 40s Teaser</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-white font-bold">&#8212;</span> <span>30 Edited High-Res Photos</span></div>
+                            <div class="flex items-center space-x-2 sm:col-span-2"><span class="text-white font-bold">&#8212;</span> <span>End-to-end Assistance</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="contact.html" class="inline-block px-8 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                            Select Premium Package
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group order-1 lg:order-2">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Premium Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
+                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm text-white px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier II</div>
+                </div>
+            </div>
+
+            <!-- Package 3: Royal Dubai Elite (Left Image Frame, Right Content) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-8 sm:p-12 shadow-sm rounded-sm">
+                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Royal Dubai Elite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-4 left-4 bg-amber-100 text-amber-900 px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier III - Ultimate Luxury</div>
+                </div>
+                <div class="lg:col-span-7 space-y-6 lg:pl-6">
+                    <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black">Royal Dubai Elite</h3>
+                    <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed">
+                        A premium pre-wedding package in Dubai providing a luxury cinematic production across iconic locations like desert dunes, Burj Khalifa, and private beaches. The ultimate luxury experience featuring private yacht and exclusive spots.
+                    </p>
+                    <div class="pt-4 border-t border-neutral-100">
+                        <p class="text-xs uppercase tracking-widest font-semibold text-black mb-3">Elite Inclusions:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-neutral-700 font-light">
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>Yacht &amp; Desert Luxury Shoot</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>Dedicated Drone Pilot &amp; Crew</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>Cinematic Story Film &amp; Teaser</span></div>
+                            <div class="flex items-center space-x-2"><span class="text-black font-bold">&#8212;</span> <span>All Edited High-Res Photos</span></div>
+                            <div class="flex items-center space-x-2 sm:col-span-2"><span class="text-black font-bold">&#8212;</span> <span>VIP Concierge &amp; Styling Support</span></div>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <a href="contact.html" class="inline-block px-8 py-3 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">
+                            Select Royal Elite
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Booking Conditions Editorial Callout -->
+        <div class="max-w-6xl mx-auto mt-20 border-t border-b border-black/20 py-10 px-4 text-center space-y-3">
+            <h4 class="font-serif text-xl font-normal text-black uppercase tracking-wider">Booking Conditions &amp; Logistics</h4>
+            <p class="text-neutral-600 text-sm font-light max-w-2xl mx-auto leading-relaxed">
+                30% deposit to book your spot (Bank Transfer or GPay). Rest 70% paid after photoshoot. Unedited photos sent via G-Drive the next day.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+            <div class="space-y-4">
+                <h3 class="font-serif text-2xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding Shoot</h3>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                    Preserving your timeless love stories and authentic pre-wedding moments across the most iconic landscapes of Dubai.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Explore</h4>
+                <ul class="space-y-2 text-sm text-neutral-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="photography.html" class="hover:text-white transition-colors">Photography</a></li>
+                    <li><a href="films.html" class="hover:text-white transition-colors">Films</a></li>
+                    <li><a href="packages.html" class="hover:text-white transition-colors">Packages</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
+                <div class="space-y-2 text-sm text-neutral-400">
+                    <p><strong>Email:</strong> hello@dubaipreweddingshoot.com</p>
+                    <p><strong>Phone:</strong> +971 4 000 0000</p>
+                    <p><strong>Location:</strong> Downtown Dubai, UAE</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
+                <p class="text-neutral-400 text-sm font-light">Book your private consultation or pre-wedding session date with our creative team.</p>
+                <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                    Inquire Now
+                </a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
+            <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="index.html" class="hover:text-white transition-colors">Instagram</a>
+                <a href="index.html" class="hover:text-white transition-colors">Facebook</a>
+                <a href="index.html" class="hover:text-white transition-colors">YouTube</a>
+                <a href="index.html" class="hover:text-white transition-colors">Pinterest</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollDelta = 10;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - lastScrollTop) <= scrollDelta) return;
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>

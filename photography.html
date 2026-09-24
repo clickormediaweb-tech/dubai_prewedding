@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography - Dubai Pre Wedding Shoot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F6F3EC;
+            color: #000000;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+        .bg-custom-cream {
+            background-color: #F6F3EC;
+        }
+
+        /* Navbar Hide/Show Transition */
+        #navbar {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .nav-hidden {
+            transform: translateY(-120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
+
+    <!-- Navigation Bar (Optimized dark capsule for light-themed background) -->
+    <header id="navbar" class="fixed top-5 left-0 w-full z-50 px-6">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/90 border border-neutral-800 shadow-xl rounded-full px-6 lg:px-10 h-20 flex items-center justify-between text-white">
+            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
+                Dubai Pre Wedding Shoot
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium tracking-wide text-neutral-200">
+                <a href="index.html" class="hover:text-white transition-opacity">Home</a>
+                <a href="photography.html" class="text-white font-semibold underline underline-offset-4">Photography</a>
+                <a href="films.html" class="hover:text-white transition-opacity">Films</a>
+                <a href="packages.html" class="hover:text-white transition-opacity">Packages</a>
+                <a href="testimonials.html" class="hover:text-white transition-opacity">Testimonials</a>
+                <a href="blog.html" class="hover:text-white transition-opacity">Blog</a>
+                <a href="contact.html" class="hover:text-white transition-opacity">Contact</a>
+                <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
+            </nav>
+
+            <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-neutral-900/95 backdrop-blur-md border border-neutral-800 rounded-2xl px-6 py-6 space-y-4 shadow-xl text-white">
+            <a href="index.html" class="block text-base font-medium text-neutral-200 hover:text-white">Home</a>
+            <a href="photography.html" class="block text-base font-medium text-white font-semibold">Photography</a>
+            <a href="films.html" class="block text-base font-medium text-neutral-200 hover:text-white">Films</a>
+            <a href="packages.html" class="block text-base font-medium text-neutral-200 hover:text-white">Packages</a>
+            <a href="testimonials.html" class="block text-base font-medium text-neutral-200 hover:text-white">Testimonials</a>
+            <a href="blog.html" class="block text-base font-medium text-neutral-200 hover:text-white">Blog</a>
+            <a href="contact.html" class="block text-base font-medium text-neutral-200 hover:text-white">Contact</a>
+            <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-sm font-medium">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- PHOTOGRAPHY PORTFOLIO SECTION -->
+    <main class="pt-36 pb-24 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-12">
+            <p class="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-3 font-medium">Portfolio</p>
+            <h1 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight text-black">WEDDING Stories</h1>
+            
+            <!-- Category Filter Tabs -->
+            <div class="flex items-center justify-center space-x-4 mt-8 text-sm text-neutral-600 font-medium">
+                <span>Select:</span>
+                <button onclick="filterStories('all')" id="btn-all" class="filter-btn text-black font-bold underline underline-offset-4 transition-all">All</button>
+                <span>|</span>
+                <button onclick="filterStories('wedding')" id="btn-wedding" class="filter-btn hover:text-black transition-all">Weddings</button>
+                <span>|</span>
+                <button onclick="filterStories('prewedding')" id="btn-prewedding" class="filter-btn hover:text-black transition-all">Pre-Weddings</button>
+            </div>
+        </div>
+
+        <!-- Stories Grid -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+            
+            <!-- Story Item 1 -->
+            <div class="story-card group" data-category="wedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Jatinder & Jasmine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Jatinder & Jasmine</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">She grew up in Ludhiana, he in Amritsar — and yet it took a country on the other side of the world for them to meet.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Wedding</p>
+            </div>
+
+            <!-- Story Item 2 -->
+            <div class="story-card group" data-category="wedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Aakansha & Gervais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Aakansha & Gervais</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">Two names, two worlds, and a guest list of people who had waited a long time for this day.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Wedding</p>
+            </div>
+
+            <!-- Story Item 3 -->
+            <div class="story-card group" data-category="wedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Abhishek & Meenakshi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Abhishek & Meenakshi</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">A wedding that moved at its own gentle pace — no rushing, no performing.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Wedding</p>
+            </div>
+
+            <!-- Story Item 4 -->
+            <div class="story-card group" data-category="wedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Abhineet & Prakriti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Abhineet & Prakriti</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">Bright light, brighter colours, and a couple who smiled through every single ceremony.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Wedding</p>
+            </div>
+
+            <!-- Story Item 5 -->
+            <div class="story-card group" data-category="wedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Manjot & Mansimran" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Manjot & Mansimran</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">Every family has that one wedding they talk about for years. We think this will be theirs.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Wedding</p>
+            </div>
+
+            <!-- Story Item 6 -->
+            <div class="story-card group" data-category="prewedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Karan & Manvi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Karan & Manvi</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">A wedding full of people who had clearly been part of this story long before the wedding day.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Pre-Wedding</p>
+            </div>
+
+            <!-- Story Item 7 -->
+            <div class="story-card group" data-category="prewedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Abhi & Aditi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Abhi & Aditi</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">Two families who had waited a long time for this one — and a couple right at the centre of it.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Pre-Wedding</p>
+            </div>
+
+            <!-- Story Item 8 -->
+            <div class="story-card group" data-category="prewedding">
+                <div class="overflow-hidden bg-neutral-200 aspect-[3/4] mb-5 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Rahul & Lovleen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2">Rahul & Lovleen</h3>
+                <p class="text-neutral-600 text-sm font-light leading-relaxed mb-4">Some couples need warming up in front of the camera. These two did not.</p>
+                <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">View Full Story →</a>
+                <p class="text-[10px] uppercase tracking-wider text-neutral-400 mt-3">Pre-Wedding</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+            <div class="space-y-4">
+                <h3 class="font-serif text-2xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding Shoot</h3>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                    Preserving your timeless love stories and authentic pre-wedding moments across the most iconic landscapes of Dubai.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Explore</h4>
+                <ul class="space-y-2 text-sm text-neutral-400">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="photography.html" class="hover:text-white transition-colors">Photography</a></li>
+                    <li><a href="films.html" class="hover:text-white transition-colors">Films</a></li>
+                    <li><a href="packages.html" class="hover:text-white transition-colors">Packages</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
+                <div class="space-y-2 text-sm text-neutral-400">
+                    <p><strong>Email:</strong> hello@dubaipreweddingshoot.com</p>
+                    <p><strong>Phone:</strong> +971 4 000 0000</p>
+                    <p><strong>Location:</strong> Downtown Dubai, UAE</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
+                <p class="text-neutral-400 text-sm font-light">Book your private consultation or pre-wedding session date with our creative team.</p>
+                <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                    Inquire Now
+                </a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
+            <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="index.html" class="hover:text-white transition-colors">Instagram</a>
+                <a href="index.html" class="hover:text-white transition-colors">Facebook</a>
+                <a href="index.html" class="hover:text-white transition-colors">YouTube</a>
+                <a href="index.html" class="hover:text-white transition-colors">Pinterest</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Mobile Menu & Filter functionality -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollDelta = 10;
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - lastScrollTop) <= scrollDelta) return;
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Category Filter Logic
+        function filterStories(category) {
+            const cards = document.querySelectorAll('.story-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('text-black', 'font-bold', 'underline', 'underline-offset-4');
+                btn.classList.add('text-neutral-600');
+            });
+
+            document.getElementById(`btn-${category}`).classList.remove('text-neutral-600');
+            document.getElementById(`btn-${category}`).classList.add('text-black', 'font-bold', 'underline', 'underline-offset-4');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
