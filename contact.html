@@ -166,32 +166,35 @@
 
             <!-- Right Column: Balanced Inquiry Form (Col 7) -->
             <div class="lg:col-span-7 bg-white border border-neutral-200 p-8 sm:p-12 rounded-3xl shadow-sm">
-                <form action="#" method="POST" class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     
+                    <!-- Hidden field to map data to the 'Contact' tab in Google Sheets -->
+                    <input type="hidden" name="formType" value="Contact">
+
                     <div class="space-y-2">
                         <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Couple's Name *</label>
-                        <input type="text" required placeholder="e.g. Aanya & Rohan" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                        <input type="text" name="Couple Name" required placeholder="e.g. Aanya & Rohan" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Email Address *</label>
-                            <input type="email" required placeholder="name@example.com" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                            <input type="email" name="Email" required placeholder="name@example.com" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                         </div>
                         <div class="space-y-2">
                             <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Phone / WhatsApp *</label>
-                            <input type="tel" required placeholder="+971 XX XXX XXXX" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                            <input type="tel" name="Phone" required placeholder="+971 XX XXX XXXX" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Estimated Shoot Date *</label>
-                            <input type="date" required class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                            <input type="date" name="Shoot Date" required class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                         </div>
                         <div class="space-y-2">
                             <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Preferred Package *</label>
-                            <select id="package-select" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                            <select id="package-select" name="Package" class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                                 <option value="The Classic Package">The Classic Package</option>
                                 <option value="The Premium Package">The Premium Package</option>
                                 <option value="Royal Dubai Elite">Royal Dubai Elite</option>
@@ -202,7 +205,7 @@
 
                     <div class="space-y-2">
                         <label class="block text-xs uppercase tracking-widest font-semibold text-neutral-700">Tell Us About Your Vision &amp; Locations</label>
-                        <textarea rows="4" placeholder="Share your dream spots in Dubai (e.g., Desert dunes, Burj Khalifa, Yacht session) and any specific dates or styling preferences..." class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors"></textarea>
+                        <textarea name="Message" rows="4" placeholder="Share your dream spots in Dubai (e.g., Desert dunes, Burj Khalifa, Yacht session) and any specific dates or styling preferences..." class="w-full px-4 py-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors"></textarea>
                     </div>
 
                     <!-- Updated Mobile-Optimized Button -->
@@ -469,6 +472,27 @@
         document.getElementById('info-modal').addEventListener('click', (e) => {
             if (e.target.id === 'info-modal') closeModal();
         });
+    </script>
+
+    <!-- JavaScript Handler for Form Submission to Google Sheet & Email -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwAnTVhyrgzZrVQ6jAYsj9IvCMcLK3nmeF2KvJvFMsfJGGtSVilywaRjpvzmFVoqBEWrw/exec';
+        const contactForm = document.getElementById('contact-form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(contactForm)})
+                    .then(response => {
+                        alert('Inquiry submitted successfully! We will get back to you soon.');
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert('Oops! Something went wrong. Please try again.');
+                    });
+            });
+        }
     </script>
 </body>
 </html>
