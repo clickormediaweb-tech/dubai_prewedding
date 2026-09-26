@@ -415,7 +415,7 @@
                             if (careerForm) {
                                 careerForm.addEventListener('submit', function(e) {
                                     e.preventDefault();
-                                    const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUO_FH2usXn-NvR1ohArUH_NJztzAkpDqaCx47siNICyXOzTD5bglD6u1ylea7Pnx4Q/exec';
+                                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxcO2Q2TT10UADUdKLO1ARMF1SrSwAvOOJ2nhdt2l8uv5ckbvt1r7eu0LuefZVjb-mfAw/exec';
                                     fetch(scriptURL, { method: 'POST', body: new FormData(careerForm)})
                                         .then(response => {
                                             alert('Application submitted successfully!');
@@ -454,7 +454,7 @@
 
     <!-- JavaScript Handler for Form Submission to Google Sheet & Email -->
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUO_FH2usXn-NvR1ohArUH_NJztzAkpDqaCx47siNICyXOzTD5bglD6u1ylea7Pnx4Q/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxcO2Q2TT10UADUdKLO1ARMF1SrSwAvOOJ2nhdt2l8uv5ckbvt1r7eu0LuefZVjb-mfAw/exec';
         const contactForm = document.getElementById('contact-form');
 
         if (contactForm) {
