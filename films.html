@@ -29,6 +29,16 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* Completely Hide Scrollbar for Ultra-Clean Premium Look */
+        #mobile-menu {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        #mobile-menu::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
         /* Modal Transitions */
         #info-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -49,9 +59,9 @@
 </head>
 <body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
 
-    <!-- Constant Light Glassmorphic Navigation Bar (Not Rounded) -->
+    <!-- Light Glassmorphic Navigation Bar for Dark Theme Hero -->
     <header id="navbar" class="fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between relative">
             
             <!-- Brand Logo -->
             <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
@@ -71,23 +81,25 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
+            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </div>
 
-        <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-white/30 px-6 py-6 space-y-4 shadow-xl">
-            <a href="index.html" class="block text-base font-medium text-black hover:opacity-60">Home</a>
-            <a href="photography.html" class="block text-base font-medium text-black hover:opacity-60">Photography</a>
-            <a href="films.html" class="block text-base font-medium text-black hover:opacity-60">Films</a>
-            <a href="packages.html" class="block text-base font-medium text-black hover:opacity-60">Packages</a>
-            <a href="testimonials.html" class="block text-base font-medium text-black hover:opacity-60">Testimonials</a>
-            <a href="blog.html" class="block text-base font-medium text-black hover:opacity-60">Blog</a>
-            <a href="contact.html" class="block text-base font-medium text-black hover:opacity-60">Contact</a>
-            <a href="getintouch.html" class="block text-center py-2.5 bg-black text-white rounded-full text-sm font-medium">Get in Touch</a>
+            <!-- Right-Aligned Compact Scrollbar-Free Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50 text-white">
+                <a href="index.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Home</a>
+                <a href="photography.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Photography</a>
+                <a href="films.html" class="block text-sm font-medium tracking-wide text-white py-1.5 border-b border-white/10 font-semibold">Films</a>
+                <a href="packages.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Packages</a>
+                <a href="testimonials.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Testimonials</a>
+                <a href="blog.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Blog</a>
+                <a href="contact.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Contact</a>
+                <div class="pt-2">
+                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -144,7 +156,7 @@
             
             <!-- Film Item 1 -->
             <div class="film-card group" data-category="trailer">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" alt="Mansimran & Manjot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -159,7 +171,7 @@
 
             <!-- Film Item 2 -->
             <div class="film-card group" data-category="trailer">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" alt="Sanyam & Sanskruti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -174,7 +186,7 @@
 
             <!-- Film Item 3 -->
             <div class="film-card group" data-category="trailer">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80" alt="Deepanshu & Shriya" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -189,7 +201,7 @@
 
             <!-- Film Item 4 -->
             <div class="film-card group" data-category="trailer">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Aakansha & Gervais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -204,7 +216,7 @@
 
             <!-- Film Item 5 -->
             <div class="film-card group" data-category="vows">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80" alt="Dinesh & Tanishika" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -219,7 +231,7 @@
 
             <!-- Film Item 6 -->
             <div class="film-card group" data-category="vows">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80" alt="Ankit & Kiran" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -234,7 +246,7 @@
 
             <!-- Film Item 7 -->
             <div class="film-card group" data-category="full">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80" alt="Prateek & Arshiya" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -249,7 +261,7 @@
 
             <!-- Film Item 8 -->
             <div class="film-card group" data-category="full">
-                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md cursor-pointer">
+                <div class="relative overflow-hidden bg-neutral-900 aspect-[16/10] mb-5 shadow-md rounded-2xl cursor-pointer">
                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" alt="Gagan & Anubha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -265,7 +277,7 @@
         </div>
     </main>
 
-    <!-- SECTION 7: Premium Footer (Matched to index.html exact layout) -->
+    <!-- SECTION 7: Premium Footer -->
     <footer id="contact-footer" class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 items-start">
             
@@ -361,8 +373,16 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
 
         document.querySelectorAll('#mobile-menu a').forEach(link => {
