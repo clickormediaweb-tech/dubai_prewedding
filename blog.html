@@ -29,13 +29,29 @@
             opacity: 0;
             pointer-events: none;
         }
+        /* Modal Transitions */
+        #info-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            display: none;
+        }
+        .modal-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            display: flex;
+        }
     </style>
 </head>
 <body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
 
-    <!-- Navigation Bar (Optimized dark capsule for light-themed background) -->
-    <header id="navbar" class="fixed top-5 left-0 w-full z-50 px-6">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/90 border border-neutral-800 shadow-xl rounded-full px-6 lg:px-10 h-20 flex items-center justify-between text-white">
+    <!-- Navigation Bar (Dark Full-Width Header for Light Theme) -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/95 border-b border-neutral-800 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between text-white">
             
             <!-- Brand Logo -->
             <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
@@ -48,7 +64,7 @@
                 <a href="photography.html" class="hover:text-white transition-colors">Photography</a>
                 <a href="films.html" class="hover:text-white transition-colors">Films</a>
                 <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
-                <a href="testimonial.html" class="hover:text-white transition-colors">Testimonials</a>
+                <a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a>
                 <a href="blog.html" class="text-white font-semibold underline underline-offset-4">Blog</a>
                 <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
                 <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
@@ -63,20 +79,44 @@
         </div>
 
         <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-neutral-900/95 backdrop-blur-md border border-neutral-800 rounded-2xl px-6 py-6 space-y-4 shadow-xl text-white">
+        <div id="mobile-menu" class="hidden lg:hidden bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 px-6 py-6 space-y-4 shadow-xl text-white">
             <a href="index.html" class="block text-base font-medium text-neutral-200 hover:text-white">Home</a>
             <a href="photography.html" class="block text-base font-medium text-neutral-200 hover:text-white">Photography</a>
             <a href="films.html" class="block text-base font-medium text-neutral-200 hover:text-white">Films</a>
             <a href="packages.html" class="block text-base font-medium text-neutral-200 hover:text-white">Packages</a>
-            <a href="testimonial.html" class="block text-base font-medium text-neutral-200 hover:text-white">Testimonials</a>
-            <a href="blog.html" class="block text-base font-medium text-white font-semibold">Blog</a>
+            <a href="testimonials.html" class="block text-base font-medium text-neutral-200 hover:text-white">Testimonials</a>
+            <a href="blog.html" class="block text-base font-medium text-white font-semibold underline underline-offset-4">Blog</a>
             <a href="contact.html" class="block text-base font-medium text-neutral-200 hover:text-white">Contact</a>
             <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-sm font-medium">Get in Touch</a>
         </div>
     </header>
 
+    <!-- SECTION: Full Article View Container (Hidden by default, shown when article is clicked) -->
+    <div id="article-reader-section" class="hidden pt-36 pb-20 px-6 bg-white border-b border-neutral-200">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <button onclick="closeArticle()" class="text-xs uppercase tracking-widest font-semibold text-neutral-500 hover:text-black flex items-center space-x-2 transition-colors cursor-pointer">
+                <span>&larr; Back to Journal</span>
+            </button>
+            <div class="space-y-4">
+                <span id="reader-category" class="text-xs uppercase tracking-widest px-3 py-1 bg-black text-white rounded-full font-semibold">Category</span>
+                <h1 id="reader-title" class="font-serif text-3xl sm:text-5xl font-normal text-black leading-tight">Article Title</h1>
+                <p id="reader-date" class="text-xs uppercase tracking-widest text-neutral-400">Date &bull; Read Time</p>
+            </div>
+            <div class="h-[400px] overflow-hidden rounded-2xl shadow-md">
+                <img id="reader-image" src="" alt="Article Cover" class="w-full h-full object-cover">
+            </div>
+            <div id="reader-content" class="prose max-w-none text-neutral-700 text-base sm:text-lg font-light leading-relaxed space-y-6">
+                <!-- Dynamic Article Body Content Appears Here -->
+            </div>
+            <div class="pt-8 border-t border-neutral-200 flex items-center justify-between">
+                <p class="text-sm font-medium text-black">Ready to create your own story?</p>
+                <a href="contact.html" class="px-6 py-3 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">Book Your Session</a>
+            </div>
+        </div>
+    </div>
+
     <!-- SECTION: Blog Hero -->
-    <section class="pt-40 pb-16 px-6 text-center">
+    <section id="blog-hero" class="pt-40 pb-16 px-6 text-center">
         <div class="max-w-4xl mx-auto space-y-4">
             <p class="font-cursive text-4xl sm:text-5xl text-neutral-800">The Journal</p>
             <h1 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight text-black uppercase">Stories &amp; Inspiration</h1>
@@ -88,7 +128,7 @@
     </section>
 
     <!-- SECTION: Featured Top Story Banner -->
-    <main class="pb-28 px-6">
+    <main id="blog-main-grid" class="pb-28 px-6">
         <div class="max-w-7xl mx-auto mb-16">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-8 sm:p-12 shadow-sm rounded-sm">
                 <div class="lg:col-span-7 h-[400px] overflow-hidden relative group">
@@ -108,9 +148,9 @@
                         From securing official permits at iconic landmarks like the Burj Khalifa to picking the ideal golden hour timing in the Arabian desert dunes, here is everything you need to know.
                     </p>
                     <div>
-                        <a href="contact.html" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                        <button onclick="openArticle('ultimate-guide')" class="inline-block text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity cursor-pointer">
                             Read Full Article &rarr;
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -141,9 +181,9 @@
                     </div>
                 </div>
                 <div class="p-8 pt-0">
-                    <a href="contact.html" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    <button onclick="openArticle('desert-vs-skyline')" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity cursor-pointer">
                         Read More &rarr;
-                    </a>
+                    </button>
                 </div>
             </article>
 
@@ -169,9 +209,9 @@
                     </div>
                 </div>
                 <div class="p-8 pt-0">
-                    <a href="contact.html" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    <button onclick="openArticle('wardrobe-styling')" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity cursor-pointer">
                         Read More &rarr;
-                    </a>
+                    </button>
                 </div>
             </article>
 
@@ -197,22 +237,23 @@
                     </div>
                 </div>
                 <div class="p-8 pt-0">
-                    <a href="contact.html" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    <button onclick="openArticle('yacht-session')" class="text-xs uppercase tracking-widest font-semibold text-black border-b border-black pb-0.5 hover:opacity-60 transition-opacity cursor-pointer">
                         Read More &rarr;
-                    </a>
+                    </button>
                 </div>
             </article>
 
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+    <!-- SECTION 7: Premium Footer -->
+    <footer id="contact-footer" class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 items-start">
+            
             <div class="space-y-4">
-                <h3 class="font-serif text-2xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding Shoot</h3>
+                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding</h3>
                 <p class="text-neutral-400 text-sm font-light leading-relaxed">
-                    Preserving your timeless love stories and authentic pre-wedding moments across the most iconic landscapes of Dubai.
+                    Preserving your timeless love stories and authentic moments across Dubai.
                 </p>
             </div>
 
@@ -223,21 +264,33 @@
                     <li><a href="photography.html" class="hover:text-white transition-colors">Photography</a></li>
                     <li><a href="films.html" class="hover:text-white transition-colors">Films</a></li>
                     <li><a href="packages.html" class="hover:text-white transition-colors">Packages</a></li>
+                    <li><a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Navigate</h4>
+                <ul class="space-y-2 text-sm text-neutral-400">
+                    <li><button onclick="openModal('faq')" class="hover:text-white transition-colors text-left cursor-pointer">FAQs</button></li>
+                    <li><button onclick="openModal('refund')" class="hover:text-white transition-colors text-left cursor-pointer">Refund Policy</button></li>
+                    <li><button onclick="openModal('privacy')" class="hover:text-white transition-colors text-left cursor-pointer">Privacy Policy</button></li>
+                    <li><button onclick="openModal('terms')" class="hover:text-white transition-colors text-left cursor-pointer">Terms &amp; Conditions</button></li>
+                    <li><button onclick="openModal('contact')" class="hover:text-white transition-colors text-left cursor-pointer">Contact Us</button></li>
+                    <li><button onclick="openModal('career')" class="hover:text-white transition-colors text-left cursor-pointer">Career</button></li>
                 </ul>
             </div>
 
             <div class="space-y-4">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
-                <div class="space-y-2 text-sm text-neutral-400">
-                    <p><strong>Email:</strong> hello@dubaipreweddingshoot.com</p>
-                    <p><strong>Phone:</strong> +971 4 000 0000</p>
-                    <p><strong>Location:</strong> Downtown Dubai, UAE</p>
+                <div class="space-y-2 text-sm text-neutral-400 leading-relaxed">
+                    <p><strong>Phone:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
+                    <p><strong>Location:</strong><br>510 Act Two Tower, Downtown Dubai, UAE</p>
                 </div>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 sm:col-span-2 lg:col-span-1">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
-                <p class="text-neutral-400 text-sm font-light">Book your private consultation or pre-wedding session date with our creative team.</p>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed">Book your private consultation or reserve your session with our creative team.</p>
                 <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
                     Inquire Now
                 </a>
@@ -246,14 +299,43 @@
         
         <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
             <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="index.html" class="hover:text-white transition-colors">Instagram</a>
-                <a href="index.html" class="hover:text-white transition-colors">Facebook</a>
-                <a href="index.html" class="hover:text-white transition-colors">YouTube</a>
-                <a href="index.html" class="hover:text-white transition-colors">Pinterest</a>
-            </div>
+            <p class="text-neutral-600">Timeless Dubai Love Stories</p>
         </div>
     </footer>
+
+    <!-- FLOATING BOTTOM-RIGHT STICKY ICONS -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <a href="https://wa.me/971588247347" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="WhatsApp">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/tarunclicks?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="Instagram">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="Scroll to top">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- POP-UP MODAL CONTAINER FOR NAVIGATE OPTIONS -->
+    <div id="info-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl bg-white text-black rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-200 transform transition-transform duration-300 max-h-[85vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-neutral-500 hover:text-black transition-colors cursor-pointer" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="mb-6 border-b border-neutral-200 pb-4 pr-8">
+                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black">Title</h3>
+            </div>
+            <div id="modal-content" class="text-neutral-700 text-sm sm:text-base font-light leading-relaxed space-y-4"></div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>
@@ -279,6 +361,186 @@
             }
             lastScrollTop = scrollTop;
         });
+
+        // Footer Modal Data Store & Functions
+        const modalData = {
+            'faq': {
+                title: 'Frequently Asked Questions (FAQs)',
+                content: `
+                    <p><strong>Q: How far in advance should we book our pre-wedding shoot in Dubai?</strong><br>We recommend booking at least 2 to 3 months in advance to secure your preferred dates and permits at iconic locations like Burj Khalifa or the Dubai desert conservation reserves.</p>
+                    <p class="mt-3"><strong>Q: Do you provide wardrobe and styling assistance?</strong><br>Yes! Our premium and elite packages include guidance on color palettes, attire recommendations, and connecting you with local hair and makeup artists.</p>
+                    <p class="mt-3"><strong>Q: When will we receive our final edited photos and cinematic films?</strong><br>Unedited previews are shared via Google Drive the very next day. Final fully-edited high-resolution photos and films are delivered within 2 to 3 weeks.</p>
+                `
+            },
+            'refund': {
+                title: 'Refund Policy',
+                content: `
+                    <p>We understand that travel plans and personal schedules can sometimes change unexpectedly. Our refund structure is designed to be transparent and fair:</p>
+                    <p class="mt-3"><strong>1. Deposit:</strong> A 30% advance deposit is required to reserve your shoot date. This deposit is fully refundable if canceled at least 30 days prior to the scheduled shoot date.</p>
+                    <p class="mt-3"><strong>2. Rescheduling:</strong> If weather conditions (such as unexpected sandstorms or severe rain) prevent outdoor shooting, we offer complimentary rescheduling within your trip window.</p>
+                `
+            },
+            'privacy': {
+                title: 'Privacy Policy',
+                content: `
+                    <p>Your privacy is our utmost priority. Any personal information, contact details, or inquiry data shared with Dubai Pre Wedding Shoot is kept strictly confidential.</p>
+                    <p class="mt-3">We never sell, rent, or distribute your private contact details to third-party marketers. Photos captured during your session may be showcased in our public portfolio unless you explicitly request a private, non-disclosure agreement (NDA) shoot.</p>
+                `
+            },
+            'terms': {
+                title: 'Terms & Conditions',
+                content: `
+                    <p>By booking a session with Dubai Pre Wedding Shoot, clients agree to the following terms:</p>
+                    <p class="mt-3"><strong>Copyright & Usage:</strong> Clients receive full personal high-resolution printing and sharing rights. Commercial usage requires prior written authorization.</p>
+                    <p class="mt-3"><strong>Payment Schedule:</strong> 30% deposit upon booking confirmation, with the remaining 70% balance settled immediately upon completion of the photoshoot.</p>
+                `
+            },
+            'contact': {
+                title: 'Contact Us',
+                content: `
+                    <p>We would love to hear your story and discuss your dream pre-wedding shoot!</p>
+                    <p class="mt-3"><strong>Phone / WhatsApp:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
+                    <p class="mt-3"><strong>Studio Location:</strong> 510 Act Two Tower, Downtown Dubai, UAE</p>
+                `
+            },
+            'career': {
+                title: 'Join Our Creative Team (Career)',
+                content: `
+                    <p class="text-xs text-neutral-600 mb-4">Are you a passionate photographer, videographer, drone pilot, or editor? Submit your application below.</p>
+                    <form onsubmit="event.preventDefault(); alert('Application submitted successfully! We will review your portfolio and get back to you.'); closeModal();" class="space-y-4">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Full Name *</label>
+                            <input type="text" required placeholder="e.g. Rahul Verma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Phone / WhatsApp *</label>
+                                <input type="tel" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Applying For *</label>
+                                <select class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                                    <option>Photographer</option>
+                                    <option>Cinematographer / Videographer</option>
+                                    <option>Drone Pilot</option>
+                                    <option>Editor / Retoucher</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Portfolio / Instagram Link *</label>
+                            <input type="url" required placeholder="https://instagram.com/yourportfolio" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Cover Note / Experience</label>
+                            <textarea rows="3" placeholder="Tell us about your gear, experience, and why you'd love to join..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
+                            Submit Application
+                        </button>
+                    </form>
+                `
+            }
+        };
+
+        function openModal(type) {
+            const data = modalData[type];
+            if (!data) return;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-content').innerHTML = data.content;
+            const modal = document.getElementById('info-modal');
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('info-modal');
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+        }
+
+        document.getElementById('info-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'info-modal') closeModal();
+        });
+
+        // Article Database & Reader View Logic
+        const articles = {
+            'ultimate-guide': {
+                category: 'Featured Guide',
+                title: 'The Ultimate Guide to Planning Your Dubai Pre-Wedding Shoot',
+                date: 'October 12, 2026 • 5 Min Read',
+                image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80',
+                content: `
+                    <p>Dubai is one of the most stunning, high-contrast photography destinations in the world. From the endless golden dunes of the Arabian desert to the soaring glass facades of Downtown Dubai, planning a pre-wedding session here requires a blend of creative vision and logistical preparation.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">1. Choosing the Right Time of Year</h3>
+                    <p>The optimal window for outdoor photography in Dubai runs from November through March. During these months, temperatures remain comfortable throughout the day, allowing for gorgeous daytime beach shoots and comfortable evening sessions in the desert without harsh midday glares.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">2. Navigating Permits and Locations</h3>
+                    <p>Many iconic architectural areas and private marinas require prior shooting permissions. When booking with a specialized local team, permit arrangements are handled seamlessly so you can focus entirely on enjoying your moments together.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">3. Catching the Golden Hour</h3>
+                    <p>Whether you're shooting against the backdrop of the Burj Al Arab or deep inside the conservation dunes, capturing the 45-minute window right before sunset delivers that signature warm, ethereal glow that makes Dubai photography legendary.</p>
+                `
+            },
+            'desert-vs-skyline': {
+                category: 'Locations',
+                title: 'Desert Dunes vs. City Skyline: Where Should You Shoot?',
+                date: 'September 28, 2026 • 4 Min Read',
+                image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <p>One of the biggest decisions couples face when planning their Dubai shoot is choosing between the serene wilderness of the desert and the high-fashion grandeur of the urban skyline.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">The Magic of the Desert Dunes</h3>
+                    <p>The desert offers absolute privacy, quiet serenity, and breathtaking natural contours. Flowing gowns catch the desert breeze beautifully, and the uninterrupted horizon creates a timeless, cinematic aesthetic.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">The Energy of the City Skyline</h3>
+                    <p>If you prefer sleek evening gowns, sharp suits, and vibrant urban lights, locations like Dubai Marina, Downtown Boulevard, and rooftop terraces deliver high-fashion magazine aesthetics.</p>
+                `
+            },
+            'wardrobe-styling': {
+                category: 'Styling & Attire',
+                title: 'What to Wear: Wardrobe & Styling Tips for Couples',
+                date: 'September 15, 2026 • 6 Min Read',
+                image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <p>Your wardrobe sets the tone for your entire visual story. Here is how to select outfits that complement both you and the iconic landscapes of Dubai.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">Fabrics in Motion</h3>
+                    <p>For outdoor desert or beach sessions, lightweight, flowing fabrics like chiffon, silk, and georgette add incredible movement when caught by the breeze.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">Color Coordination</h3>
+                    <p>Opt for earthy tones, muted pastels, or rich jewel tones that contrast harmoniously against golden sands or deep blue waters rather than blending entirely into the background.</p>
+                `
+            },
+            'yacht-session': {
+                category: 'Luxury Experience',
+                title: 'Behind the Lens: A Luxury Yacht & Beach Session',
+                date: 'August 30, 2026 • 5 Min Read',
+                image: 'https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <p>Step aboard our signature Royal Dubai Elite experience. Privately chartered yachts provide an unmatched perspective of the Dubai coastline.</p>
+                    <h3 class="font-serif text-2xl text-black mt-6 mb-3">An Unforgettable On-Water Experience</h3>
+                    <p>Cruising past the Palm Jumeirah and Atlantis while capturing candid laughs on deck creates memories that last a lifetime, complete with drone cinematography overhead.</p>
+                `
+            }
+        };
+
+        function openArticle(articleId) {
+            const data = articles[articleId];
+            if (!data) return;
+
+            document.getElementById('reader-category').innerText = data.category;
+            document.getElementById('reader-title').innerText = data.title;
+            document.getElementById('reader-date').innerText = data.date;
+            document.getElementById('reader-image').src = data.image;
+            document.getElementById('reader-content').innerHTML = data.content;
+
+            document.getElementById('blog-hero').classList.add('hidden');
+            document.getElementById('blog-main-grid').classList.add('hidden');
+            document.getElementById('article-reader-section').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeArticle() {
+            document.getElementById('article-reader-section').classList.add('hidden');
+            document.getElementById('blog-hero').classList.remove('hidden');
+            document.getElementById('blog-main-grid').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>

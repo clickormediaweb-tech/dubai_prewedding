@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dubai Pre Wedding Shoot</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Loaded Great Vibes for the exact cursive signature look -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <!-- Brittany Signature Font Import -->
+    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -16,23 +17,25 @@
         .font-serif {
             font-family: 'Playfair Display', serif;
         }
-        .font-cursive {
-            font-family: 'Great Vibes', cursive;
+        .font-signature {
+            font-family: 'Brittany Signature', sans-serif;
+        }
+        .font-inter-bold {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
         }
         .bg-custom-cream {
             background-color: #F6F3EC;
         }
-
-        /* Slanted top and bottom border for the Cinematic section */
+        /* Less Slanted Top and Bottom Border for Cinematic Section */
         .slanted-cinematic {
-            clip-path: polygon(0 6vw, 100% 0, 100% calc(100% - 6vw), 0 100%);
-            margin-top: -3vw;
-            margin-bottom: -3vw;
+            clip-path: polygon(0 2.5vw, 100% 0, 100% calc(100% - 2.5vw), 0 100%);
+            margin-top: -1.5vw;
+            margin-bottom: -1.5vw;
             position: relative;
             z-index: 10;
         }
 
-        /* Navbar Hide/Show Transition */
         #navbar {
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
@@ -42,80 +45,33 @@
             pointer-events: none;
         }
 
-        /* Fast, High-Impact Dynamic Card-Cover Animation (Starts Immediately, 6s Total Cycle) */
-        @keyframes fastCoverDeckAnimation {
-            0% {
-                transform: translateY(0px) scale(1) rotate(0deg);
-                z-index: 40;
-                opacity: 1;
-                filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.25));
-            }
-            /* Slide down and tilt dynamically */
-            22% {
-                transform: translateY(35px) scale(0.94) rotate(-4deg);
-                z-index: 40;
-                opacity: 0.85;
-                filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-            }
-            /* Instantly snap to back with dramatic scale-up zoom effect as it covers */
-            25% {
-                transform: translateY(-50px) scale(0.85) rotate(6deg);
-                z-index: 10;
-                opacity: 0;
-            }
-            30% {
-                transform: translateY(-20px) scale(0.90) rotate(4deg);
-                z-index: 10;
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(0px) scale(0.95) rotate(2deg);
-                z-index: 20;
-                opacity: 1;
-            }
-            75% {
-                transform: translateY(0px) scale(0.98) rotate(-1deg);
-                z-index: 30;
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0px) scale(1) rotate(0deg);
-                z-index: 40;
-                opacity: 1;
-                filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.25));
-            }
+        /* Modal Transitions */
+        #info-modal, #video-modal, #gallery-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-
-        .card-cover-1 {
-            animation: fastCoverDeckAnimation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            animation-delay: 0s;
+        .modal-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            display: none;
         }
-        .card-cover-2 {
-            animation: fastCoverDeckAnimation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            animation-delay: 1.5s;
-        }
-        .card-cover-3 {
-            animation: fastCoverDeckAnimation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            animation-delay: 3s;
-        }
-        .card-cover-4 {
-            animation: fastCoverDeckAnimation 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            animation-delay: 4.5s;
+        .modal-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            display: flex;
         }
     </style>
 </head>
 <body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
 
-    <!-- Navigation Bar (Glassmorphic floating capsule with scroll hide/show behavior) -->
-    <header id="navbar" class="fixed top-5 left-0 w-full z-50 px-6">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border border-white/40 shadow-xl rounded-full px-6 lg:px-10 h-20 flex items-center justify-between">
-            
-            <!-- Brand Logo -->
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between">
             <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
                 Dubai Pre Wedding Shoot
             </a>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium tracking-wide text-white drop-shadow-md">
                 <a href="index.html" class="hover:opacity-60 transition-opacity">Home</a>
                 <a href="photography.html" class="hover:opacity-60 transition-opacity">Photography</a>
@@ -127,7 +83,6 @@
                 <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
             </nav>
 
-            <!-- Mobile Menu Button -->
             <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -135,8 +90,7 @@
             </button>
         </div>
 
-        <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-white/95 backdrop-blur-md border border-white/30 rounded-2xl px-6 py-6 space-y-4 shadow-xl">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-white/30 px-6 py-6 space-y-4 shadow-xl">
             <a href="index.html" class="block text-base font-medium text-black hover:opacity-60">Home</a>
             <a href="photography.html" class="block text-base font-medium text-black hover:opacity-60">Photography</a>
             <a href="films.html" class="block text-base font-medium text-black hover:opacity-60">Films</a>
@@ -148,19 +102,17 @@
         </div>
     </header>
 
-    <!-- SECTION 1: Hero Section (Fixed with HTML5 <video> tag for robust browser autoplay compatibility) -->
+    <!-- SECTION 1: Hero Section with Video & Volume Toggle -->
     <section id="home" class="relative w-full h-[110vh] flex items-center justify-center overflow-hidden bg-black">
-        <!-- Background Video Container -->
         <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
             <div class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[110vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <video id="hero-video" autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="dubaiindex.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
 
-        <!-- Hero Content -->
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-24">
             <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight mb-2 drop-shadow-lg">
                 DubaiPreWedding
@@ -169,69 +121,76 @@
                 Stories of Love & Joy of Weddings
             </p>
         </div>
+
+        <!-- Floating Volume Toggle Button (Bottom Right) -->
+        <button id="volume-btn" onclick="toggleHeroAudio()" class="absolute bottom-8 right-8 z-20 p-3 rounded-full bg-white/25 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 transition-all flex items-center justify-center shadow-lg" aria-label="Toggle Audio">
+            <!-- Muted Icon (Default) -->
+            <svg id="icon-muted" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            </svg>
+            <!-- Unmuted Icon (Hidden by default) -->
+            <svg id="icon-unmuted" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+        </button>
     </section>
 
-    <!-- SECTION 2: Intro / Wedding Photographer in Dubai (Exact Reference Styling with Fast-paced Cinematic Card-Cover Animation) -->
-    <section class="py-24 px-6 bg-[#F6F3EC] relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div id="about" class="lg:col-span-6 space-y-6">
-                <p class="font-cursive text-4xl sm:text-5xl lg:text-6xl text-neutral-900 leading-none">Frames Of Forever</p>
-                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-black uppercase leading-[1.15]">
-                    WEDDING PHOTOGRAPHER IN DUBAI
-                </h2>
-                <p class="text-neutral-700 text-base sm:text-lg leading-relaxed font-light pt-2">
-                    Your wedding day is a beautiful story waiting to be told, and we’re here to capture every heartfelt moment. As your wedding photographer in Dubai, we don’t just capture the images, we preserve the laughter, the tears, and the love that make your day truly unforgettable. Let’s create something timeless, something that feels like you.
-                </p>
-            </div>
+    <!-- SECTION 2: Exact Reference Matching Layout with Inter Bold VISUAL STORIES -->
+    <section id="about" class="py-20 md:py-32 px-6 md:px-16 bg-[#F6F3EC] relative overflow-hidden">
+        <div class="max-w-[1350px] mx-auto flex flex-col items-center relative">
             
-            <!-- Dynamic Fast-Paced Cinematic Card-Cover Polaroids Stack Animation Frame -->
-            <div class="lg:col-span-6 relative flex justify-center items-center h-[520px]">
-                <div class="relative w-full max-w-[450px] h-[480px] flex items-center justify-center">
-                    
-                    <!-- Card 1 -->
-                    <div class="absolute inset-0 bg-white p-4 pb-14 shadow-2xl border border-neutral-200 card-cover-1">
-                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Ceremony" class="w-full h-[380px] object-cover">
-                        <div class="absolute bottom-4 left-0 w-full text-center font-serif text-xs text-neutral-600 tracking-widest font-semibold">
-                            DUBAI PRE-WEDDING MOMENTS
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="absolute inset-0 bg-white p-4 pb-14 shadow-2xl border border-neutral-200 card-cover-2">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Bride Ready" class="w-full h-[380px] object-cover">
-                        <div class="absolute bottom-4 left-0 w-full text-center font-serif text-xs text-neutral-600 tracking-widest font-semibold">
-                            DUBAI PRE-WEDDING MOMENTS
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="absolute inset-0 bg-white p-4 pb-14 shadow-2xl border border-neutral-200 card-cover-3">
-                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Desert Sunset" class="w-full h-[380px] object-cover">
-                        <div class="absolute bottom-4 left-0 w-full text-center font-serif text-xs text-neutral-600 tracking-widest font-semibold">
-                            DUBAI PRE-WEDDING MOMENTS
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="absolute inset-0 bg-white p-4 pb-14 shadow-2xl border border-neutral-200 card-cover-4">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Romantic Portrait" class="w-full h-[380px] object-cover">
-                        <div class="absolute bottom-4 left-0 w-full text-center font-serif text-xs text-neutral-600 tracking-widest font-semibold">
-                            DUBAI PRE-WEDDING MOMENTS
-                        </div>
-                    </div>
-
-                </div>
+            <!-- Top Cursive Script Header: Frames Of Forever in Brittany Signature -->
+            <div class="text-center mb-6 md:mb-8 z-30">
+                <p class="font-signature text-5xl sm:text-6xl lg:text-7xl text-neutral-900 leading-none">Frames Of Forever</p>
             </div>
+
+            <!-- Row 1: Left Landscape Image, VISUAL Text, Right Portrait Image -->
+            <div class="w-full flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-2 relative z-20">
+                
+                <!-- Left Landscape Image -->
+                <div class="w-[280px] sm:w-[320px] lg:w-[350px] h-[170px] sm:h-[195px] lg:h-[215px] rounded-md overflow-hidden shadow-xl border-4 border-white transform -rotate-1 shrink-0 z-20">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Detail" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Center Text: VISUAL (Inter Bold) -->
+                <div class="text-center z-10 py-1">
+                    <h2 class="font-inter-bold text-6xl sm:text-8xl lg:text-[10rem] tracking-wide uppercase text-black leading-none select-none">
+                        VISUAL
+                    </h2>
+                </div>
+
+                <!-- Right Portrait Image -->
+                <div class="w-[240px] sm:w-[280px] lg:w-[310px] h-[340px] sm:h-[390px] lg:h-[430px] rounded-md overflow-hidden shadow-2xl border-4 border-white shrink-0 z-30 lg:-mt-10">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Couple Portrait" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+
+            <!-- Row 2: STORIES Text & Center Square Image -->
+            <div class="w-full flex flex-col lg:flex-row items-center justify-start gap-4 lg:gap-12 relative -mt-6 sm:-mt-12 lg:-mt-24 z-20">
+                
+                <!-- Text: STORIES (Inter Bold) -->
+                <div class="text-center lg:text-left z-10">
+                    <h2 class="font-inter-bold text-6xl sm:text-8xl lg:text-[10rem] tracking-wide uppercase text-black leading-none select-none">
+                        STORIES
+                    </h2>
+                </div>
+
+                <!-- Center Square Image positioned right below VISUAL next to STORIES -->
+                <div class="w-[220px] sm:w-[260px] lg:w-[290px] h-[160px] sm:h-[185px] lg:h-[205px] rounded-md overflow-hidden shadow-xl border-4 border-white shrink-0 z-20 lg:ml-8">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ceremony Moment" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <!-- SECTION 3: Exact Replica of Imprint's Glimpse Section Layout -->
+    <!-- SECTION 3: Journey & Destinations -->
     <section class="py-24 bg-white border-y border-black/10 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12">
-            <!-- 3-Column Grid Matching Imprint Exactly -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- Left Title Block (Col 4) -->
                 <div class="lg:col-span-4 space-y-1">
                     <p class="font-cursive text-5xl sm:text-6xl text-neutral-900 leading-none">Glimpse Of</p>
                     <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black uppercase leading-[1.15] pt-2">
@@ -239,10 +198,9 @@
                     </h2>
                 </div>
 
-                <!-- Middle Column: 2011 / Established in & Team (Col 4) -->
                 <div class="lg:col-span-4 space-y-8">
                     <div>
-                        <div class="font-serif text-6xl sm:text-7xl font-normal text-black tracking-tight mb-2">2011</div>
+                        <div class="font-serif text-6xl sm:text-7xl font-normal text-black tracking-tight mb-2">2019</div>
                         <div class="flex items-center space-x-2.5 text-neutral-800 font-medium pt-1">
                             <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                             <span class="text-sm tracking-wide">Established in</span>
@@ -258,7 +216,6 @@
                     </div>
                 </div>
 
-                <!-- Right Column: 280+ / Weddings & Approach (Col 4) -->
                 <div class="lg:col-span-4 space-y-8">
                     <div>
                         <div class="font-serif text-6xl sm:text-7xl font-normal text-red-600/90 tracking-tight mb-2">280+</div>
@@ -276,62 +233,48 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- 10+ iconic dubai destinations Section with Tight Single-Line Layout -->
         <div class="mt-16 pt-10 pb-6 border-t border-black/10">
             <div class="max-w-7xl mx-auto px-6">
-                
-                <!-- Inner container utilizing a 12-column grid layout, offsetting content to the right (cols 5 to 12) -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div class="hidden lg:block lg:col-span-4"></div>
-                    
                     <div class="lg:col-span-8 space-y-6">
-                        <!-- Title Row -->
                         <div>
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black tracking-tight">10+ iconic dubai destinations</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black tracking-tight">10+ Iconic Dubai Destinations</h3>
                         </div>
-                        
-                        <!-- Compact Single Line Horizontal Destination Circles Row -->
                         <div class="flex items-center justify-between gap-3">
-                            <!-- Burj Khalifa -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=200&q=80" alt="Burj Khalifa" class="w-full h-full object-cover">
                                 </div>
                                 <span class="text-[10px] sm:text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Burj Khalifa</span>
                             </div>
-                            <!-- Dubai Desert -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Dubai Desert" class="w-full h-full object-cover">
                                 </div>
                                 <span class="text-[10px] sm:text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Dubai Desert</span>
                             </div>
-                            <!-- Palm Jumeirah -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80" alt="Palm Jumeirah" class="w-full h-full object-cover">
                                 </div>
                                 <span class="text-[10px] sm:text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Palm Jumeirah</span>
                             </div>
-                            <!-- Dubai Marina -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=200&q=80" alt="Dubai Marina" class="w-full h-full object-cover">
                                 </div>
                                 <span class="text-[10px] sm:text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Dubai Marina</span>
                             </div>
-                            <!-- Miracle Garden -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" alt="Miracle Garden" class="w-full h-full object-cover">
                                 </div>
                                 <span class="text-[10px] sm:text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Miracle Garden</span>
                             </div>
-                            <!-- Atlantis Royal -->
                             <div class="flex flex-col items-center">
                                 <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm">
                                     <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=200&q=80" alt="Atlantis Royal" class="w-full h-full object-cover">
@@ -340,9 +283,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -354,56 +295,60 @@
             <p class="text-neutral-600 mt-3 font-light">Captured moments that live eternally</p>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 max-w-[1450px] mx-auto">
-            <div class="overflow-hidden group h-56">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 max-w-[1450px] mx-auto">
+            <div onclick="openGalleryModal('gallery1')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery2')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery3')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery4')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery5')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery6')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery7')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="bg-white text-black flex flex-col items-center justify-center p-6 text-center h-56 shadow-md border border-neutral-200">
-                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mb-1">the images that end up</p>
-                <p class="font-serif text-2xl font-normal tracking-wide">"Framed"</p>
-                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mt-1">on family walls</p>
+                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mb-1">the moments you’ll want to</p>
+                <p class="font-serif text-2xl font-normal tracking-wide">"Frame"</p>
+                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mt-1">for a lifetime.</p>
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery8')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery9')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery10')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery11')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery12')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery13')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
-            <div class="overflow-hidden group h-56">
+            <div onclick="openGalleryModal('gallery14')" class="overflow-hidden group h-56 cursor-pointer relative">
                 <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="photography.html" class="inline-block px-10 py-4 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors shadow-xl">
+                Explore More &rarr;
+            </a>
         </div>
     </section>
 
@@ -412,36 +357,76 @@
         <div class="max-w-7xl mx-auto text-center mb-16 pt-4">
             <h2 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight mb-4 text-white">LET'S GET Cinematic</h2>
             <p class="text-neutral-400 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-                Films are where our journey began. We craft wedding films that feel less like videos and more like cinema — real emotions, real sound, real moments, cut with the patience of a feature film.
+                Films are where our journey began. We craft pre-wedding films that feel less like videos and more like cinema — your chemistry, your laughter, your little moments, captured with real emotion and crafted with the patience of a feature film.
             </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            <div class="group relative overflow-hidden bg-neutral-900 rounded-sm">
-                <div class="h-96 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Film 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            <div onclick="openVideoModal('film1')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
+                <div class="h-[420px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Aakansha & Gervais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-2xl tracking-wide">Aakansha & Gervais</h3>
+                <div class="p-6 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl tracking-wide text-white">Aakansha & Gervais</h3>
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Desert Golden Hour Feature</p>
                 </div>
             </div>
-            <div class="group relative overflow-hidden bg-neutral-900 rounded-sm">
-                <div class="h-96 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Film 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+
+            <div onclick="openVideoModal('film2')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
+                <div class="h-[420px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" alt="Abhineet & Prakriti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center">
-                    <h3 class="font-serif text-2xl tracking-wide">Abhineet & Prakriti</h3>
+                <div class="p-6 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl tracking-wide text-white">Abhineet & Prakriti</h3>
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Downtown Dubai Skyline Story</p>
                 </div>
             </div>
+
+            <div onclick="openVideoModal('film3')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
+                <div class="h-[420px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80" alt="Sanyam & Sanskruti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="p-6 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl tracking-wide text-white">Sanyam & Sanskruti</h3>
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Royal Yacht & Marina Elegance</p>
+                </div>
+            </div>
+
+            <div onclick="openVideoModal('film4')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
+                <div class="h-[420px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" alt="Mansimran & Manjot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="p-6 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl tracking-wide text-white">Mansimran & Manjot</h3>
+                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Historic Al Fahidi Romance</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="films.html" class="inline-block px-10 py-4 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors shadow-xl">
+                Explore More Films &rarr;
+            </a>
         </div>
     </section>
 
@@ -449,7 +434,7 @@
     <section class="py-24 px-6 bg-custom-cream text-center border-b border-black/10">
         <div class="max-w-3xl mx-auto space-y-4">
             <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-normal leading-[1.6] italic text-neutral-800">
-                "We celebrate the wild ones, the rule breakers, the new age modern couple who are not afraid to experiment. We believe the ultimate goal of a wedding photographer is to justify the vibe of the wedding and the personalities of the couple."
+                “We celebrate the wild ones, the rule breakers, and the modern couples who aren’t afraid to be different. We believe the ultimate goal of a pre-wedding photographer is to capture the vibe, chemistry, and personalities that make your love story uniquely yours.”
             </h3>
             <div class="w-12 h-0.5 bg-black/20 mx-auto mt-6"></div>
             <p class="text-xs text-neutral-600 tracking-[0.2em] uppercase pt-1 font-medium">
@@ -458,18 +443,30 @@
         </div>
     </section>
 
+    <!-- FEATURED IN SECTION -->
+    <section class="py-20 bg-white text-center">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center">
+            <div class="w-full flex justify-center items-center mb-10 py-2">
+                <img src="image 4.png" alt="Featured In Logos" class="w-auto max-w-full h-auto object-contain max-h-28 md:max-h-40 mx-auto block">
+            </div>
+
+            <p class="font-serif italic text-gray-700 text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-center">
+                We believe your pre-wedding photos should be an enjoyable experience, not a burden. We work collaboratively to capture your love story with a relaxed and creative approach. Browse our gallery, see how we make couples shine!
+            </p>
+        </div>
+    </section>
+
     <!-- SECTION 7: Premium Footer -->
     <footer id="contact-footer" class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
-            <!-- Brand Column -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 items-start">
+            
             <div class="space-y-4">
-                <h3 class="font-serif text-2xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding Shoot</h3>
+                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding</h3>
                 <p class="text-neutral-400 text-sm font-light leading-relaxed">
-                    Preserving your timeless love stories and authentic pre-wedding moments across the most iconic landscapes of Dubai.
+                    Preserving your timeless love stories and authentic moments across Dubai.
                 </p>
             </div>
 
-            <!-- Quick Links -->
             <div class="space-y-4">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Explore</h4>
                 <ul class="space-y-2 text-sm text-neutral-400">
@@ -481,39 +478,132 @@
                 </ul>
             </div>
 
-            <!-- Contact Information -->
+            <div class="space-y-4">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Navigate</h4>
+                <ul class="space-y-2 text-sm text-neutral-400">
+                    <li><button onclick="openModal('faq')" class="hover:text-white transition-colors text-left cursor-pointer">FAQs</button></li>
+                    <li><button onclick="openModal('refund')" class="hover:text-white transition-colors text-left cursor-pointer">Refund Policy</button></li>
+                    <li><button onclick="openModal('privacy')" class="hover:text-white transition-colors text-left cursor-pointer">Privacy Policy</button></li>
+                    <li><button onclick="openModal('terms')" class="hover:text-white transition-colors text-left cursor-pointer">Terms &amp; Conditions</button></li>
+                    <li><button onclick="openModal('contact')" class="hover:text-white transition-colors text-left cursor-pointer">Contact Us</button></li>
+                    <li><button onclick="openModal('career')" class="hover:text-white transition-colors text-left cursor-pointer">Career</button></li>
+                </ul>
+            </div>
+
             <div class="space-y-4">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
-                <div class="space-y-2 text-sm text-neutral-400">
-                    <p><strong>Email:</strong> hello@dubaipreweddingshoot.com</p>
-                    <p><strong>Phone:</strong> +971 4 000 0000</p>
-                    <p><strong>Location:</strong> Downtown Dubai, UAE</p>
+                <div class="space-y-2 text-sm text-neutral-400 leading-relaxed">
+                    <p><strong>Phone:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
+                    <p><strong>Location:</strong><br>510 Act Two Tower, Downtown Dubai, UAE</p>
                 </div>
             </div>
 
-            <!-- Newsletter / Call to Action -->
-            <div class="space-y-4">
+            <div class="space-y-4 sm:col-span-2 lg:col-span-1">
                 <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
-                <p class="text-neutral-400 text-sm font-light">Book your private consultation or pre-wedding session date with our creative team.</p>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed">Book your private consultation or reserve your session with our creative team.</p>
                 <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
                     Inquire Now
                 </a>
             </div>
         </div>
         
-        <!-- Bottom Bar -->
-        <div id="faq" class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
             <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="index.html" class="hover:text-white transition-colors">Instagram</a>
-                <a href="index.html" class="hover:text-white transition-colors">Facebook</a>
-                <a href="index.html" class="hover:text-white transition-colors">YouTube</a>
-                <a href="index.html" class="hover:text-white transition-colors">Pinterest</a>
-            </div>
+            <p class="text-neutral-600">Timeless Dubai Love Stories</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu & Scroll-based Navbar Visibility -->
+    <!-- FLOATING BOTTOM-RIGHT STICKY ICONS -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <a href="https://wa.me/971588247347" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="WhatsApp">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/tarunclicks?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="Instagram">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform border border-neutral-700" aria-label="Scroll to top">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- POP-UP MODAL CONTAINER FOR GALLERY PHOTOS -->
+    <div id="gallery-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/90 backdrop-blur-md">
+        <div class="relative w-full max-w-3xl bg-neutral-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-neutral-800 transform transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeGalleryModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white transition-colors z-20" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="space-y-4">
+                <div class="rounded-xl overflow-hidden shadow-xl max-h-[60vh] bg-black flex items-center justify-center">
+                    <img id="gmodal-img" src="" alt="Gallery Preview" class="w-full h-full object-contain max-h-[60vh]">
+                </div>
+                <div class="space-y-2 text-center">
+                    <span id="gmodal-tag" class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Dubai Collection</span>
+                    <h3 id="gmodal-title" class="font-serif text-2xl font-normal text-white">Timeless Romance</h3>
+                    <p id="gmodal-desc" class="text-neutral-300 text-xs sm:text-sm font-light leading-relaxed max-w-lg mx-auto">
+                        Captured during our exclusive pre-wedding sessions across the iconic landscapes of Dubai.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP MODAL CONTAINER FOR NAVIGATE OPTIONS -->
+    <div id="info-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl bg-white text-black rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-200 transform transition-transform duration-300 max-h-[85vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-neutral-500 hover:text-black transition-colors" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="mb-6 border-b border-neutral-200 pb-4 pr-8">
+                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black">Title</h3>
+            </div>
+            <div id="modal-content" class="text-neutral-700 text-sm sm:text-base font-light leading-relaxed space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- POP-UP MODAL CONTAINER FOR CINEMATIC VIDEOS -->
+    <div id="video-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/90 backdrop-blur-md">
+        <div class="relative w-full max-w-3xl bg-neutral-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-800 transform transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeVideoModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white transition-colors z-20" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="space-y-6">
+                <div class="relative w-full aspect-[16/9] bg-black rounded-xl overflow-hidden shadow-xl">
+                    <img id="vmodal-img" src="" alt="Video Preview" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                        <div class="w-16 h-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <span id="vmodal-subtitle" class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Category</span>
+                    <h3 id="vmodal-title" class="font-serif text-3xl font-normal text-white">Couple Name</h3>
+                    <p id="vmodal-desc" class="text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
+                        Description goes here...
+                    </p>
+                </div>
+
+                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
+                    <span class="text-xs uppercase tracking-widest text-neutral-400">Cinematic Production by Dubai Pre-Wedding</span>
+                    <a href="contact.html" class="px-6 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                        Book Similar Session
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -528,6 +618,23 @@
             });
         });
 
+        // Toggle Hero Video Volume
+        function toggleHeroAudio() {
+            const video = document.getElementById('hero-video');
+            const iconMuted = document.getElementById('icon-muted');
+            const iconUnmuted = document.getElementById('icon-unmuted');
+
+            if (video.muted) {
+                video.muted = false;
+                iconMuted.classList.add('hidden');
+                iconUnmuted.classList.remove('hidden');
+            } else {
+                video.muted = true;
+                iconMuted.classList.remove('hidden');
+                iconUnmuted.classList.add('hidden');
+            }
+        }
+
         // Hide navbar on scroll down, show on scroll up
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
@@ -535,17 +642,205 @@
 
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
             if (Math.abs(scrollTop - lastScrollTop) <= scrollDelta) return;
 
             if (scrollTop > lastScrollTop && scrollTop > 80) {
-                // Scrolling Down -> Hide Navbar
                 navbar.classList.add('nav-hidden');
             } else {
-                // Scrolling Up -> Show Navbar
                 navbar.classList.remove('nav-hidden');
             }
             lastScrollTop = scrollTop;
+        });
+
+        // Gallery Modal Data & Functions
+        const galleryData = {
+            'gallery1': { title: 'Golden Hour Embrace', tag: 'Desert Dunes', desc: 'Warm sunset casting a golden glow over endless sand dunes during an intimate evening session.', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80' },
+            'gallery2': { title: 'Modern Elegance', tag: 'Downtown Dubai', desc: 'Sophisticated portraits blending urban architecture with romantic candid glances.', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80' },
+            'gallery3': { title: 'Sunset Silhouette', tag: 'Dubai Desert', desc: 'Striking silhouettes against the dramatic twilight sky of the Arabian desert.', img: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80' },
+            'gallery4': { title: 'Royal Celebration', tag: 'Palm Jumeirah', desc: 'Luxury coastal framing overlooking the tranquil turquoise waters of the Gulf.', img: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80' },
+            'gallery5': { title: 'Intimate Whispers', tag: 'Al Fahidi Quarter', desc: 'Historic wind-tower alleyways providing timeless textural backdrops.', img: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80' },
+            'gallery6': { title: 'Marina Skyline', tag: 'Dubai Marina', desc: 'Glittering evening lights reflecting off luxury yachts and high-rise towers.', img: 'https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80' },
+            'gallery7': { title: 'Botanical Romance', tag: 'Miracle Garden', desc: 'Surrounded by cascading floral displays and vibrant colors in full bloom.', img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80' },
+            'gallery8': { title: 'Desert Majesty', tag: 'Conservation Reserve', desc: 'Uninterrupted open landscapes capturing raw and authentic connection.', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80' },
+            'gallery9': { title: 'Urban Chic', tag: 'City Walk', desc: 'Modern street aesthetics paired with high fashion attire styling.', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80' },
+            'gallery10': { title: 'Golden Sands', tag: 'Dubai Desert', desc: 'Gentle breezes and sweeping dunes for an ethereal aesthetic.', img: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80' },
+            'gallery11': { title: 'Burj View', tag: 'Burj Khalifa Backdrop', desc: 'Iconic architecture framing the couple in crisp, high-definition clarity.', img: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80' },
+            'gallery12': { title: 'Coastal Serenity', tag: 'Jumeirah Beach', desc: 'Soft ocean waves and morning sunlight along the coast.', img: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80' },
+            'gallery13': { title: 'Yacht Charter', tag: 'Atlantis Horizon', desc: 'Exclusive nautical setting with open sea views.', img: 'https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80' },
+            'gallery14': { title: 'Timeless Grace', tag: 'Downtown Dubai', desc: 'Poised portraiture emphasizing authentic emotion and romance.', img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80' }
+        };
+
+        function openGalleryModal(id) {
+            const data = galleryData[id];
+            if (!data) return;
+            document.getElementById('gmodal-title').innerText = data.title;
+            document.getElementById('gmodal-tag').innerText = data.tag;
+            document.getElementById('gmodal-desc').innerText = data.desc;
+            document.getElementById('gmodal-img').src = data.img;
+            const modal = document.getElementById('gallery-modal');
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('gallery-modal');
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+        }
+
+        document.getElementById('gallery-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'gallery-modal') closeGalleryModal();
+        });
+
+        // Footer Navigate Modal Data Store
+        const modalData = {
+            'faq': {
+                title: 'Frequently Asked Questions (FAQs)',
+                content: `
+                    <p><strong>Q: How far in advance should we book our pre-wedding shoot in Dubai?</strong><br>We recommend booking at least 2 to 3 months in advance to secure your preferred dates and permits at iconic locations like Burj Khalifa or the Dubai desert conservation reserves.</p>
+                    <p class="mt-3"><strong>Q: Do you provide wardrobe and styling assistance?</strong><br>Yes! Our premium and elite packages include guidance on color palettes, attire recommendations, and connecting you with local hair and makeup artists.</p>
+                    <p class="mt-3"><strong>Q: When will we receive our final edited photos and cinematic films?</strong><br>Unedited previews are shared via Google Drive the very next day. Final fully-edited high-resolution photos and films are delivered within 2 to 3 weeks.</p>
+                `
+            },
+            'refund': {
+                title: 'Refund Policy',
+                content: `
+                    <p>We understand that travel plans and personal schedules can sometimes change unexpectedly. Our refund structure is designed to be transparent and fair:</p>
+                    <p class="mt-3"><strong>1. Deposit:</strong> A 30% advance deposit is required to reserve your shoot date. This deposit is fully refundable if canceled at least 30 days prior to the scheduled shoot date.</p>
+                    <p class="mt-3"><strong>2. Rescheduling:</strong> If weather conditions (such as unexpected sandstorms or severe rain) prevent outdoor shooting, we offer complimentary rescheduling within your trip window.</p>
+                `
+            },
+            'privacy': {
+                title: 'Privacy Policy',
+                content: `
+                    <p>Your privacy is our utmost priority. Any personal information, contact details, or inquiry data shared with Dubai Pre Wedding Shoot is kept strictly confidential.</p>
+                    <p class="mt-3">We never sell, rent, or distribute your private contact details to third-party marketers. Photos captured during your session may be showcased in our public portfolio unless you explicitly request a private, non-disclosure agreement (NDA) shoot.</p>
+                `
+            },
+            'terms': {
+                title: 'Terms & Conditions',
+                content: `
+                    <p>By booking a session with Dubai Pre Wedding Shoot, clients agree to the following terms:</p>
+                    <p class="mt-3"><strong>Copyright & Usage:</strong> Clients receive full personal high-resolution printing and sharing rights. Commercial usage requires prior written authorization.</p>
+                    <p class="mt-3"><strong>Payment Schedule:</strong> 30% deposit upon booking confirmation, with the remaining 70% balance settled immediately upon completion of the photoshoot.</p>
+                `
+            },
+            'contact': {
+                title: 'Contact Us',
+                content: `
+                    <p>We would love to hear your story and discuss your dream pre-wedding shoot!</p>
+                    <p class="mt-3"><strong>Phone / WhatsApp:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
+                    <p class="mt-3"><strong>Studio Location:</strong> 510 Act Two Tower, Downtown Dubai, UAE</p>
+                `
+            },
+            'career': {
+                title: 'Join Our Creative Team (Career)',
+                content: `
+                    <p class="text-xs text-neutral-600 mb-4">Are you a passionate photographer, videographer, drone pilot, or editor? Submit your application below.</p>
+                    <form onsubmit="event.preventDefault(); alert('Application submitted successfully! We will review your portfolio and get back to you.'); closeModal();" class="space-y-4">
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Full Name *</label>
+                            <input type="text" required placeholder="e.g. Rahul Verma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Phone / WhatsApp *</label>
+                                <input type="tel" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Applying For *</label>
+                                <select class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                                    <option>Photographer</option>
+                                    <option>Cinematographer / Videographer</option>
+                                    <option>Drone Pilot</option>
+                                    <option>Editor / Retoucher</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Portfolio / Instagram Link *</label>
+                            <input type="url" required placeholder="https://instagram.com/yourportfolio" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Cover Note / Experience</label>
+                            <textarea rows="3" placeholder="Tell us about your gear, experience, and why you'd love to join..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md">
+                            Submit Application
+                        </button>
+                    </form>
+                `
+            }
+        };
+
+        function openModal(type) {
+            const data = modalData[type];
+            if (!data) return;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-content').innerHTML = data.content;
+            const modal = document.getElementById('info-modal');
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('info-modal');
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+        }
+
+        document.getElementById('info-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'info-modal') closeModal();
+        });
+
+        // Cinematic Video Modal Data Store
+        const videoData = {
+            'film1': {
+                title: 'Aakansha & Gervais',
+                subtitle: 'Desert Golden Hour Feature',
+                image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
+                description: 'Set against the majestic dunes of the Dubai desert, this cinematic film captures the quiet warmth of sunset as golden light wraps around the couple. With sweeping drone shots and intimate framing, it preserves a timeless romance.'
+            },
+            'film2': {
+                title: 'Abhineet & Prakriti',
+                subtitle: 'Downtown Dubai Skyline Story',
+                image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+                description: 'A vibrant urban narrative filmed across the bustling boulevards and high-fashion backdrops of Downtown Dubai and the Marina. This film balances high-end glamour with effortless, candid laughter.'
+            },
+            'film3': {
+                title: 'Sanyam & Sanskruti',
+                subtitle: 'Royal Yacht & Marina Elegance',
+                image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80',
+                description: 'An exclusive private yacht charter across the turquoise waters of the Arabian Gulf. Featuring shimmering reflections, gentle ocean breezes, and breathtaking views of the Atlantis horizon.'
+            },
+            'film4': {
+                title: 'Mansimran & Manjot',
+                subtitle: 'Historic Al Fahidi Romance',
+                image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+                description: 'Wandering through the nostalgic wind-tower alleyways of the historic Al Fahidi neighborhood, blending heritage architecture with contemporary love stories for a deeply soulful cinematic experience.'
+            }
+        };
+
+        function openVideoModal(filmId) {
+            const data = videoData[filmId];
+            if (!data) return;
+            document.getElementById('vmodal-title').innerText = data.title;
+            document.getElementById('vmodal-subtitle').innerText = data.subtitle;
+            document.getElementById('vmodal-img').src = data.image;
+            document.getElementById('vmodal-desc').innerText = data.description;
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-visible');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            modal.classList.remove('modal-visible');
+            modal.classList.add('modal-hidden');
+        }
+
+        document.getElementById('video-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'video-modal') closeVideoModal();
         });
     </script>
 </body>
