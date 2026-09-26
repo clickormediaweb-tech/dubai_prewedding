@@ -30,6 +30,14 @@
             pointer-events: none;
         }
 
+        /* Fix iOS Safari video rendering artifacts and black flashing boxes */
+        #hero-video {
+            isolation: isolate;
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
         /* Completely Hide Scrollbar for Ultra-Clean Premium Look */
         #mobile-menu {
             scrollbar-width: none; /* Firefox */
@@ -106,8 +114,8 @@
     <!-- SECTION 1: Cinematic Hero Section with Background Video Loop -->
     <section class="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden bg-black">
         <!-- Background Video Container -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-70">
-            <video id="hero-video" autoplay muted loop playsinline class="w-full h-full object-cover">
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-70 bg-black">
+            <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover">
                 <source src="dubai.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
