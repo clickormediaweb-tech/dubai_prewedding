@@ -47,6 +47,15 @@
             pointer-events: none;
         }
 
+        /* Completely Hide Scrollbar for Ultra-Clean Premium Look */
+        #mobile-menu {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        #mobile-menu::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
         /* Modal Transitions */
         #info-modal, #video-modal, #gallery-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -69,7 +78,7 @@
 
     <!-- Navigation Bar -->
     <header id="navbar" class="fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between relative">
             <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
                 Dubai Pre Wedding Shoot
             </a>
@@ -85,22 +94,25 @@
                 <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
             </nav>
 
-            <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
+            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-white/30 px-6 py-6 space-y-4 shadow-xl">
-            <a href="index.html" class="block text-base font-medium text-black hover:opacity-60">Home</a>
-            <a href="photography.html" class="block text-base font-medium text-black hover:opacity-60">Photography</a>
-            <a href="films.html" class="block text-base font-medium text-black hover:opacity-60">Films</a>
-            <a href="packages.html" class="block text-base font-medium text-black hover:opacity-60">Packages</a>
-            <a href="testimonials.html" class="block text-base font-medium text-black hover:opacity-60">Testimonials</a>
-            <a href="blog.html" class="block text-base font-medium text-black hover:opacity-60">Blog</a>
-            <a href="contact.html" class="block text-base font-medium text-black hover:opacity-60">Contact</a>
-            <a href="getintouch.html" class="block text-center py-2.5 bg-black text-white rounded-full text-sm font-medium">Get in Touch</a>
+            <!-- Right-Aligned Compact Scrollbar-Free Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50">
+                <a href="index.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Home</a>
+                <a href="photography.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Photography</a>
+                <a href="films.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Films</a>
+                <a href="packages.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Packages</a>
+                <a href="testimonials.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Testimonials</a>
+                <a href="blog.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Blog</a>
+                <a href="contact.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Contact</a>
+                <div class="pt-2">
+                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -605,16 +617,21 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- JavaScript -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
 
         document.querySelectorAll('#mobile-menu a').forEach(link => {
