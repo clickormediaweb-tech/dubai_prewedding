@@ -30,6 +30,15 @@
             pointer-events: none;
         }
 
+        /* Completely Hide Scrollbar for Ultra-Clean Premium Look */
+        #mobile-menu {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        #mobile-menu::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
         /* Modal Transitions */
         #info-modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -50,9 +59,9 @@
 </head>
 <body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
 
-    <!-- Navigation Bar (Dark background, full-width unrounded style) -->
+    <!-- Navigation Bar (Dark Styled) -->
     <header id="navbar" class="fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/90 border-b border-neutral-800 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between text-white">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-neutral-900/90 border-b border-neutral-800 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between relative">
             <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
                 Dubai Pre Wedding Shoot
             </a>
@@ -69,23 +78,25 @@
                 <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
             </nav>
 
-            <button id="menu-btn" class="lg:hidden p-2 focus:outline-none text-white" aria-label="Toggle Menu">
+            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-neutral-800/80 backdrop-blur-md rounded-full border border-neutral-700 transition-transform active:scale-95" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </div>
 
-        <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 px-6 py-6 space-y-4 shadow-xl text-white">
-            <a href="index.html" class="block text-base font-medium text-neutral-200 hover:text-white">Home</a>
-            <a href="photography.html" class="block text-base font-medium text-neutral-200 hover:text-white">Photography</a>
-            <a href="films.html" class="block text-base font-medium text-neutral-200 hover:text-white">Films</a>
-            <a href="packages.html" class="block text-base font-medium text-white font-semibold">Packages</a>
-            <a href="testimonials.html" class="block text-base font-medium text-neutral-200 hover:text-white">Testimonials</a>
-            <a href="blog.html" class="block text-base font-medium text-neutral-200 hover:text-white">Blog</a>
-            <a href="contact.html" class="block text-base font-medium text-neutral-200 hover:text-white">Contact</a>
-            <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-sm font-medium">Get in Touch</a>
+            <!-- Right-Aligned Compact Scrollbar-Free Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-neutral-900/95 backdrop-blur-2xl border border-neutral-800 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50 text-white">
+                <a href="index.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Home</a>
+                <a href="photography.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Photography</a>
+                <a href="films.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Films</a>
+                <a href="packages.html" class="block text-sm font-medium tracking-wide text-white py-1.5 border-b border-neutral-800 font-semibold">Packages</a>
+                <a href="testimonials.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Testimonials</a>
+                <a href="blog.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Blog</a>
+                <a href="contact.html" class="block text-sm font-medium tracking-wide text-neutral-300 hover:text-white py-1.5 border-b border-neutral-800">Contact</a>
+                <div class="pt-2">
+                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -103,10 +114,10 @@
         <div class="max-w-6xl mx-auto space-y-20">
             
             <!-- Package 1: The Classic Package -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-8 sm:p-12 shadow-sm rounded-sm">
-                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-6 sm:p-12 shadow-sm rounded-2xl">
+                <div class="lg:col-span-5 h-[300px] sm:h-[350px] overflow-hidden relative group rounded-xl">
                     <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Classic Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier I</div>
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] uppercase tracking-widest font-semibold rounded-full">Tier I</div>
                 </div>
                 <div class="lg:col-span-7 space-y-6 lg:pl-6">
                     <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black">The Classic Package</h3>
@@ -124,7 +135,7 @@
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="contact.html?package=classic" class="inline-block px-8 py-3 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors">
+                        <a href="contact.html?package=classic" class="w-full sm:w-auto inline-block px-6 sm:px-8 py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors shadow text-center whitespace-normal">
                             Select Classic Package
                         </a>
                     </div>
@@ -132,7 +143,7 @@
             </div>
 
             <!-- Package 2: The Premium Package -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-black text-white p-8 sm:p-12 shadow-2xl rounded-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-black text-white p-6 sm:p-12 shadow-2xl rounded-2xl">
                 <div class="lg:col-span-7 space-y-6 lg:pr-6 order-2 lg:order-1">
                     <span class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Most Sought After</span>
                     <h3 class="font-serif text-3xl sm:text-4xl font-normal text-white">The Premium Package</h3>
@@ -150,22 +161,22 @@
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="contact.html?package=premium" class="inline-block px-8 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                        <a href="contact.html?package=premium" class="w-full sm:w-auto inline-block px-6 sm:px-8 py-3.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors shadow text-center whitespace-normal">
                             Select Premium Package
                         </a>
                     </div>
                 </div>
-                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group order-1 lg:order-2">
+                <div class="lg:col-span-5 h-[300px] sm:h-[350px] overflow-hidden relative group rounded-xl order-1 lg:order-2">
                     <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Premium Package" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90">
-                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm text-white px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier II</div>
+                    <div class="absolute top-4 right-4 bg-black/80 backdrop-blur-sm text-white px-3 py-1 text-[10px] uppercase tracking-widest font-semibold rounded-full">Tier II</div>
                 </div>
             </div>
 
             <!-- Package 3: Royal Dubai Elite -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-8 sm:p-12 shadow-sm rounded-sm">
-                <div class="lg:col-span-5 h-[350px] overflow-hidden relative group">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-neutral-200 p-6 sm:p-12 shadow-sm rounded-2xl">
+                <div class="lg:col-span-5 h-[300px] sm:h-[350px] overflow-hidden relative group rounded-xl">
                     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Royal Dubai Elite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute top-4 left-4 bg-amber-100 text-amber-900 px-3 py-1 text-[10px] uppercase tracking-widest font-semibold">Tier III - Ultimate Luxury</div>
+                    <div class="absolute top-4 left-4 bg-amber-100 text-amber-900 px-3 py-1 text-[10px] uppercase tracking-widest font-semibold rounded-full">Tier III - Ultimate Luxury</div>
                 </div>
                 <div class="lg:col-span-7 space-y-6 lg:pl-6">
                     <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black">Royal Dubai Elite</h3>
@@ -183,7 +194,7 @@
                         </div>
                     </div>
                     <div class="pt-2">
-                        <a href="contact.html?package=elite" class="inline-block px-8 py-3 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                        <a href="contact.html?package=elite" class="w-full sm:w-auto inline-block px-6 sm:px-8 py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors shadow text-center whitespace-normal">
                             SELECT ROYAL DUBAI ELITE PACKAGE
                         </a>
                     </div>
@@ -297,8 +308,22 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         // Hide navbar on scroll down, show on scroll up
