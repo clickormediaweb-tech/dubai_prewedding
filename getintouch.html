@@ -176,26 +176,29 @@
             </div>
 
             <!-- Quick Form -->
-            <form action="#" method="POST" class="space-y-4">
+            <form id="getintouch-form" class="space-y-4">
+                <!-- Hidden field to map data to the 'GetInTouch' tab in Google Sheets -->
+                <input type="hidden" name="formType" value="GetInTouch">
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1">
                         <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700">Your Name *</label>
-                        <input type="text" required placeholder="e.g. Aanya Sharma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                        <input type="text" name="Name" required placeholder="e.g. Aanya Sharma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                     </div>
                     <div class="space-y-1">
                         <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700">WhatsApp / Phone *</label>
-                        <input type="tel" required placeholder="+971 XX XXX XXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                        <input type="tel" name="Phone" required placeholder="+971 XX XXX XXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1">
                         <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700">Target Shoot Date *</label>
-                        <input type="date" required class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                        <input type="date" name="Shoot Date" required class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                     </div>
                     <div class="space-y-1">
                         <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700">Preferred Package *</label>
-                        <select class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
+                        <select name="Package" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors">
                             <option>The Classic Package</option>
                             <option>The Premium Package</option>
                             <option>Royal Dubai Elite</option>
@@ -205,7 +208,7 @@
 
                 <div class="space-y-1">
                     <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700">Brief Note or Locations</label>
-                    <textarea rows="3" placeholder="Desert dunes, Burj Khalifa, yacht..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors"></textarea>
+                    <textarea name="Notes" rows="3" placeholder="Desert dunes, Burj Khalifa, yacht..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black transition-colors"></textarea>
                 </div>
 
                 <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
@@ -398,7 +401,7 @@
                             <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Cover Note / Experience</label>
                             <textarea rows="3" placeholder="Tell us about your gear, experience, and why you'd love to join..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
+                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md">
                             Submit Application
                         </button>
                     </form>
@@ -458,6 +461,28 @@
             }
             lastScrollTop = scrollTop;
         });
+    </script>
+
+    <!-- JavaScript Handler for Form Submission to Google Sheet & Email -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwAnTVhyrgzZrVQ6jAYsj9IvCMcLK3nmeF2KvJvFMsfJGGtSVilywaRjpvzmFVoqBEWrw/exec';
+        const getInTouchForm = document.getElementById('getintouch-form');
+
+        if (getInTouchForm) {
+            getInTouchForm.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(getInTouchForm)})
+                    .then(response => {
+                        alert('Instant enquiry sent successfully! We will get back to you shortly.');
+                        getInTouchForm.reset();
+                        toggleModal(false);
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert('Oops! Something went wrong. Please try again.');
+                    });
+            });
+        }
     </script>
 </body>
 </html>
