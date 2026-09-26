@@ -150,55 +150,92 @@
         </button>
     </section>
 
-    <!-- SECTION 2: Exact Reference Matching Layout with Inter Bold VISUAL STORIES -->
-    <section id="about" class="py-20 md:py-32 px-6 md:px-16 bg-[#F6F3EC] relative overflow-hidden">
-        <div class="max-w-[1350px] mx-auto flex flex-col items-center relative">
+    <!-- SECTION 2: Frames of Forever (Mobile-Optimized & Laptop Original Layouts) -->
+    <section id="about" class="py-16 md:py-32 px-6 md:px-16 bg-[#F6F3EC] relative overflow-hidden">
+        
+        <!-- MOBILE VIEW (Visible only on mobile/tablet via block lg:hidden) -->
+        <div class="block lg:hidden max-w-md mx-auto space-y-8 text-center">
+            <div class="space-y-1">
+                <p class="font-signature text-4xl text-neutral-900 leading-none">Frames Of Forever</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- VISUAL Block -->
+                <div class="space-y-3">
+                    <h2 class="font-inter-bold text-5xl tracking-wide uppercase text-black leading-none">
+                        VISUAL
+                    </h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="h-40 rounded-xl overflow-hidden shadow-md border-2 border-white">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Wedding Detail" class="w-full h-full object-cover">
+                        </div>
+                        <div class="h-40 rounded-xl overflow-hidden shadow-md border-2 border-white">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Couple Portrait" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STORIES Block -->
+                <div class="space-y-3 pt-2">
+                    <h2 class="font-inter-bold text-5xl tracking-wide uppercase text-black leading-none">
+                        STORIES
+                    </h2>
+                    <div class="h-48 rounded-xl overflow-hidden shadow-md border-2 border-white">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ceremony Moment" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LAPTOP / DESKTOP VIEW (Visible only on lg screens and above via hidden lg:block) -->
+        <div class="hidden lg:block max-w-[1350px] mx-auto relative">
             
-            <!-- Top Cursive Script Header: Frames Of Forever in Brittany Signature -->
-            <div class="text-center mb-6 md:mb-8 z-30">
-                <p class="font-signature text-5xl sm:text-6xl lg:text-7xl text-neutral-900 leading-none">Frames Of Forever</p>
+            <!-- Top Cursive Script Header -->
+            <div class="text-center mb-8 z-30">
+                <p class="font-signature text-7xl text-neutral-900 leading-none">Frames Of Forever</p>
             </div>
 
             <!-- Row 1: Left Landscape Image, VISUAL Text, Right Portrait Image -->
-            <div class="w-full flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-2 relative z-20">
+            <div class="w-full flex items-center justify-between gap-2 relative z-20">
                 
                 <!-- Left Landscape Image -->
-                <div class="w-[280px] sm:w-[320px] lg:w-[350px] h-[170px] sm:h-[195px] lg:h-[215px] rounded-md overflow-hidden shadow-xl border-4 border-white transform -rotate-1 shrink-0 z-20">
+                <div class="w-[350px] h-[215px] rounded-md overflow-hidden shadow-xl border-4 border-white transform -rotate-1 shrink-0 z-20">
                     <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Detail" class="w-full h-full object-cover">
                 </div>
 
                 <!-- Center Text: VISUAL (Inter Bold) -->
                 <div class="text-center z-10 py-1">
-                    <h2 class="font-inter-bold text-6xl sm:text-8xl lg:text-[10rem] tracking-wide uppercase text-black leading-none select-none">
+                    <h2 class="font-inter-bold text-[10rem] tracking-wide uppercase text-black leading-none select-none">
                         VISUAL
                     </h2>
                 </div>
 
                 <!-- Right Portrait Image -->
-                <div class="w-[240px] sm:w-[280px] lg:w-[310px] h-[340px] sm:h-[390px] lg:h-[430px] rounded-md overflow-hidden shadow-2xl border-4 border-white shrink-0 z-30 lg:-mt-10">
+                <div class="w-[310px] h-[430px] rounded-md overflow-hidden shadow-2xl border-4 border-white shrink-0 z-30 -mt-10">
                     <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Couple Portrait" class="w-full h-full object-cover">
                 </div>
 
             </div>
 
             <!-- Row 2: STORIES Text & Center Square Image -->
-            <div class="w-full flex flex-col lg:flex-row items-center justify-start gap-4 lg:gap-12 relative -mt-6 sm:-mt-12 lg:-mt-24 z-20">
+            <div class="w-full flex items-center justify-start gap-12 relative -mt-24 z-20">
                 
                 <!-- Text: STORIES (Inter Bold) -->
-                <div class="text-center lg:text-left z-10">
-                    <h2 class="font-inter-bold text-6xl sm:text-8xl lg:text-[10rem] tracking-wide uppercase text-black leading-none select-none">
+                <div class="text-left z-10">
+                    <h2 class="font-inter-bold text-[10rem] tracking-wide uppercase text-black leading-none select-none">
                         STORIES
                     </h2>
                 </div>
 
                 <!-- Center Square Image positioned right below VISUAL next to STORIES -->
-                <div class="w-[220px] sm:w-[260px] lg:w-[290px] h-[160px] sm:h-[185px] lg:h-[205px] rounded-md overflow-hidden shadow-xl border-4 border-white shrink-0 z-20 lg:ml-8">
+                <div class="w-[290px] h-[205px] rounded-md overflow-hidden shadow-xl border-4 border-white shrink-0 z-20 ml-8">
                     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ceremony Moment" class="w-full h-full object-cover">
                 </div>
 
             </div>
 
         </div>
+
     </section>
 
     <!-- SECTION 3: Journey & Destinations (Responsive: Stacked Reference Layout on Mobile, Original Multi-Column Layout on Laptop) -->
