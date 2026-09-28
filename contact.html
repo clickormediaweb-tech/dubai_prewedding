@@ -409,8 +409,6 @@
             }
         };
 
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxHU-SSKUiU2EcqLwz_13aTdUHcCCguz-IO2TPxNMOBXU4jYnQf_26E3yfvdrhH4WII1A/exec';
-
         function openModal(type) {
             const data = modalData[type];
             if (!data) return;
@@ -419,26 +417,6 @@
             const modal = document.getElementById('info-modal');
             modal.classList.remove('modal-hidden');
             modal.classList.add('modal-visible');
-
-            // Attach submit listener dynamically when the career modal opens
-            if (type === 'career') {
-                const careerForm = document.getElementById('career-form');
-                if (careerForm) {
-                    careerForm.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        fetch(scriptURL, { method: 'POST', body: new FormData(careerForm)})
-                            .then(response => {
-                                alert('Application submitted successfully! We will review your portfolio and get back to you.');
-                                careerForm.reset();
-                                closeModal();
-                            })
-                            .catch(error => {
-                                console.error('Error!', error.message);
-                                alert('Oops! Something went wrong. Please try again.');
-                            });
-                    });
-                }
-            }
         }
 
         function closeModal() {
@@ -450,6 +428,27 @@
         document.getElementById('info-modal').addEventListener('click', (e) => {
             if (e.target.id === 'info-modal') closeModal();
         });
+    </script>
+
+    <!-- JavaScript Handler for Main Contact Form -->
+    <script>
+        const contactScriptURL = 'https://script.google.com/macros/s/AKfycbxHU-SSKUiU2EcqLwz_13aTdUHcCCguz-IO2TPxNMOBXU4jYnQf_26E3yfvdrhH4WII1A/exec'; // Replace with your main Contact/GetInTouch Google Apps Script URL
+        const contactForm = document.getElementById('contact-form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(contactScriptURL, { method: 'POST', body: new FormData(contactForm)})
+                    .then(response => {
+                        alert('Inquiry submitted successfully! We will get back to you soon.');
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert('Oops! Something went wrong. Please try again.');
+                    });
+            });
+        }
     </script>
 
     <!-- JavaScript Handler for Career Modal Form -->
