@@ -463,7 +463,29 @@
         });
     </script>
 
-   <!-- JavaScript Handler for Career Modal Form -->
+    <!-- JavaScript Handler for GetInTouch Modal Form -->
+    <script>
+        const getInTouchScriptURL = 'https://script.google.com/macros/s/AKfycbxHU-SSKUiU2EcqLwz_13aTdUHcCCguz-IO2TPxNMOBXU4jYnQf_26E3yfvdrhH4WII1A/exec'; // Replace with your Contact/GetInTouch Apps Script URL
+        const getInTouchForm = document.getElementById('getintouch-form');
+
+        if (getInTouchForm) {
+            getInTouchForm.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(getInTouchScriptURL, { method: 'POST', body: new FormData(getInTouchForm)})
+                    .then(response => {
+                        alert('Inquiry submitted successfully! We will get back to you soon.');
+                        getInTouchForm.reset();
+                        toggleModal(false);
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        alert('Oops! Something went wrong. Please try again.');
+                    });
+            });
+        }
+    </script>
+
+    <!-- JavaScript Handler for Career Modal Form -->
     <script>
         const careerScriptURL = 'https://script.google.com/macros/s/AKfycbxUceb65KuLVhS_2W90YrXSDgkqg3Kph5E3scUDrRDLeXuyCaLz0fbkMCxmq5hocMzDUA/exec';
 
