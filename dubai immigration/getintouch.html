@@ -175,8 +175,8 @@
                 <p class="text-neutral-600 text-xs font-light">Tell us a bit about your plans and we'll get back to you within 2 hours.</p>
             </div>
 
-            <!-- Quick Form -->
-            <form id="getintouch-form" class="space-y-4">
+            <!-- Quick Form targeting hidden iframe to bypass CORS -->
+            <form id="getintouch-form" action="https://script.google.com/macros/s/AKfycbxHU-SSKUiU2Ecqlwz_13a1TdUDllcCcguz-I_fvdrhH4WIT1A/exec" method="POST" target="hidden_iframe" class="space-y-4">
                 <!-- Hidden field to map data to the 'GetInTouch' tab in Google Sheets -->
                 <input type="hidden" name="formType" value="GetInTouch">
 
@@ -215,6 +215,9 @@
                     Send Instant Enquiry
                 </button>
             </form>
+
+            <!-- Hidden Iframe for seamless submission handling without CORS issues -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(window.submitted) { alert('Inquiry submitted successfully! We will get back to you soon.'); document.getElementById('getintouch-form').reset(); toggleModal(false); window.submitted = false; }"></iframe>
 
         </div>
     </div>
@@ -283,10 +286,10 @@
             </div>
         </div>
         
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 uppercase tracking-widest space-y-4 sm:space-y-0">
-            <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
-            <p class="text-neutral-600">Timeless Dubai Love Stories</p>
-        </div>
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center text-xs text-neutral-400 uppercase tracking-widest space-y-2">
+    <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
+    <p>Crafted by <a href="https://clickormedia.co.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Clickormedia</a></p>
+</div>
     </footer>
 
     <!-- Scripts for Mobile Menu, Scroll Hide/Show, and Modals -->
@@ -463,24 +466,13 @@
         });
     </script>
 
-    <!-- JavaScript Handler for GetInTouch Modal Form -->
+    <!-- JavaScript Handler for GetInTouch Form Submission via Hidden Iframe -->
     <script>
-        const getInTouchScriptURL = 'https://script.google.com/macros/s/AKfycbxHU-SSKUiU2EcqLwz_13aTdUHcCCguz-IO2TPxNMOBXU4jYnQf_26E3yfvdrhH4WII1A/exec'; // Replace with your Contact/GetInTouch Apps Script URL
         const getInTouchForm = document.getElementById('getintouch-form');
 
         if (getInTouchForm) {
-            getInTouchForm.addEventListener('submit', e => {
-                e.preventDefault();
-                fetch(getInTouchScriptURL, { method: 'POST', body: new FormData(getInTouchForm)})
-                    .then(response => {
-                        alert('Inquiry submitted successfully! We will get back to you soon.');
-                        getInTouchForm.reset();
-                        toggleModal(false);
-                    })
-                    .catch(error => {
-                        console.error('Error!', error.message);
-                        alert('Oops! Something went wrong. Please try again.');
-                    });
+            getInTouchForm.addEventListener('submit', function() {
+                window.submitted = true;
             });
         }
     </script>
