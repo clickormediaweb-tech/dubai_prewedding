@@ -374,9 +374,6 @@
                 content: `
                     <p class="text-xs text-neutral-600 mb-4">Are you a passionate photographer, videographer, drone pilot, or editor? Submit your application below.</p>
                     <form id="career-form" class="space-y-4">
-                        <!-- Hidden field to map data to the 'Career' tab in Google Sheets -->
-                        <input type="hidden" name="formType" value="Career">
-
                         <div>
                             <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Full Name *</label>
                             <input type="text" name="Full Name" required placeholder="e.g. Rahul Verma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
@@ -455,24 +452,26 @@
         });
     </script>
 
-    <!-- JavaScript Handler for Main Contact Form -->
+    <!-- JavaScript Handler for Career Modal Form -->
     <script>
-        const contactForm = document.getElementById('contact-form');
+        const careerScriptURL = 'https://script.google.com/macros/s/AKfycbyuFzDGXAT5oYDd96c_KX7OI0eAA5uMQ7ebuHMbajK5UQ4uKjsK5lkX6egWK9yiZHJDjA/exec';
 
-        if (contactForm) {
-            contactForm.addEventListener('submit', e => {
+        document.addEventListener('submit', function(e) {
+            if (e.target && e.target.id === 'career-form') {
                 e.preventDefault();
-                fetch(scriptURL, { method: 'POST', body: new FormData(contactForm)})
+                const careerForm = e.target;
+                fetch(careerScriptURL, { method: 'POST', body: new FormData(careerForm)})
                     .then(response => {
-                        alert('Inquiry submitted successfully! We will get back to you soon.');
-                        contactForm.reset();
+                        alert('Application submitted successfully! We will review your portfolio and get back to you.');
+                        careerForm.reset();
+                        closeModal();
                     })
                     .catch(error => {
                         console.error('Error!', error.message);
                         alert('Oops! Something went wrong. Please try again.');
                     });
-            });
-        }
+            }
+        });
     </script>
 </body>
 </html>
