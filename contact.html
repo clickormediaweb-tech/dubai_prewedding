@@ -408,28 +408,11 @@
                             Submit Application
                         </button>
                     </form>
-
-                    <script>
-                        setTimeout(() => {
-                            const careerForm = document.getElementById('career-form');
-                            if (careerForm) {
-                                careerForm.addEventListener('submit', function(e) {
-                                    e.preventDefault();
-                                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxcO2Q2TT10UADUdKLO1ARMF1SrSwAvOOJ2nhdt2l8uv5ckbvt1r7eu0LuefZVjb-mfAw/exec';
-                                    fetch(scriptURL, { method: 'POST', body: new FormData(careerForm)})
-                                        .then(response => {
-                                            alert('Application submitted successfully!');
-                                            careerForm.reset();
-                                            closeModal();
-                                        })
-                                        .catch(error => console.error('Error!', error.message));
-                                });
-                            }
-                        }, 300);
-                    </script>
                 `
             }
         };
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqUO_FH2usXn-NvR1ohArUH_NJztzAkpDqaCx47siNICyXOzTD5bglD6u1ylea7Pnx4Q/exec';
 
         function openModal(type) {
             const data = modalData[type];
@@ -439,6 +422,26 @@
             const modal = document.getElementById('info-modal');
             modal.classList.remove('modal-hidden');
             modal.classList.add('modal-visible');
+
+            // Attach submit listener dynamically when the career modal opens
+            if (type === 'career') {
+                const careerForm = document.getElementById('career-form');
+                if (careerForm) {
+                    careerForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        fetch(scriptURL, { method: 'POST', body: new FormData(careerForm)})
+                            .then(response => {
+                                alert('Application submitted successfully! We will review your portfolio and get back to you.');
+                                careerForm.reset();
+                                closeModal();
+                            })
+                            .catch(error => {
+                                console.error('Error!', error.message);
+                                alert('Oops! Something went wrong. Please try again.');
+                            });
+                    });
+                }
+            }
         }
 
         function closeModal() {
@@ -452,9 +455,8 @@
         });
     </script>
 
-    <!-- JavaScript Handler for Form Submission to Google Sheet & Email -->
+    <!-- JavaScript Handler for Main Contact Form -->
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxcO2Q2TT10UADUdKLO1ARMF1SrSwAvOOJ2nhdt2l8uv5ckbvt1r7eu0LuefZVjb-mfAw/exec';
         const contactForm = document.getElementById('contact-form');
 
         if (contactForm) {
