@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Films - Dubai Pre Wedding Shoot</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #F6F3EC;
             color: #000000;
         }
         .font-serif {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
         .font-cursive {
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
         .bg-custom-cream {
             background-color: #F6F3EC;
@@ -65,47 +66,52 @@
         }
     </style>
 </head>
-<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
+<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white" style="font-family: 'Inter', sans-serif;">
 
-    <!-- Light Glassmorphic Navigation Bar for Dark Theme Hero -->
-    <header id="navbar" class="fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between relative">
+    <!-- Navigation Bar (Perfectly Contained & Spaced) -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-white/10 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
             
-            <!-- Brand Logo -->
-            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
+            <!-- Left: Brand Title -->
+            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-semibold tracking-[0.12em] uppercase text-white whitespace-nowrap pr-4" style="font-family: 'Montserrat', sans-serif;">
                 Dubai Pre Wedding Shoot
             </a>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium tracking-wide text-white drop-shadow-md">
-                <a href="index.html" class="hover:opacity-60 transition-opacity">Home</a>
-                <a href="photography.html" class="hover:opacity-60 transition-opacity">Photography</a>
-                <a href="films.html" class="opacity-100 font-semibold underline underline-offset-4">Films</a>
-                <a href="packages.html" class="hover:opacity-60 transition-opacity">Packages</a>
-                <a href="testimonials.html" class="hover:opacity-60 transition-opacity">Testimonials</a>
-                <a href="blog.html" class="hover:opacity-60 transition-opacity">Blog</a>
-                <a href="contact.html" class="hover:opacity-60 transition-opacity">Contact</a>
-                <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
-            </nav>
+            <!-- Desktop Navigation Links & CTA -->
+            <div class="hidden lg:flex items-center space-x-5 xl:space-x-8">
+                <nav class="flex items-center space-x-4 xl:space-x-6 text-[11px] xl:text-xs font-medium tracking-[0.15em] text-neutral-300 uppercase" style="font-family: 'Montserrat', sans-serif;">
+                    <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                    <a href="photography.html" class="hover:text-white transition-colors">Photography</a>
+                    <a href="films.html" class="text-white font-semibold underline underline-offset-4">Films</a>
+                    <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+                    <a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a>
+                    <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                </nav>
+                
+                <a href="getintouch.html" style="font-family: 'Montserrat', sans-serif;" class="px-5 py-2.5 bg-transparent border border-white/40 text-white rounded-full text-[11px] xl:text-xs font-semibold uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-300 shadow-sm whitespace-nowrap">
+                    Get in Touch
+                </a>
+            </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95" aria-label="Toggle Menu">
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95 ml-auto" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Right-Aligned Compact Scrollbar-Free Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50 text-white">
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50" style="font-family: 'Montserrat', sans-serif;">
                 <a href="index.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Home</a>
                 <a href="photography.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Photography</a>
-                <a href="films.html" class="block text-sm font-medium tracking-wide text-white py-1.5 border-b border-white/10 font-semibold">Films</a>
+                <a href="films.html" class="block text-sm font-semibold tracking-wide text-white underline underline-offset-4 hover:text-white py-1.5 border-b border-white/10">Films</a>
                 <a href="packages.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Packages</a>
                 <a href="testimonials.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Testimonials</a>
                 <a href="blog.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Blog</a>
                 <a href="contact.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Contact</a>
                 <div class="pt-2">
-                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
+                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
                 </div>
             </div>
         </div>
@@ -116,7 +122,7 @@
         <!-- Background Video Container -->
         <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-70 bg-black">
             <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover">
-                <source src="dubai.mp4" type="video/mp4">
+                <source src="dubaifilms.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -124,10 +130,10 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight mb-4 drop-shadow-lg">
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-tight mb-4 drop-shadow-lg" style="font-family: 'Cormorant Garamond', serif;">
                 Made to Be Rewatched.
             </h1>
-            <p class="text-white/90 text-xs sm:text-sm tracking-[0.25em] font-light uppercase drop-shadow-md">
+            <p class="text-white/90 text-xs sm:text-sm tracking-[0.25em] font-light uppercase drop-shadow-md" style="font-family: 'Montserrat', sans-serif;">
                 Dubai Pre Wedding Shoot &middot; Wedding Films
             </p>
         </div>
@@ -150,7 +156,7 @@
     <main class="py-24 px-6">
         <div class="max-w-7xl mx-auto mb-16">
             <!-- Category Filter Tabs -->
-            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-neutral-600 font-medium">
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-neutral-600 font-medium" style="font-family: 'Montserrat', sans-serif;">
                 <button onclick="filterFilms('all')" id="btn-all" class="filter-btn text-black font-bold underline underline-offset-4 transition-all">All</button>
                 <span class="text-neutral-300">|</span>
                 <button onclick="filterFilms('trailer')" id="btn-trailer" class="filter-btn hover:text-black transition-all">The Trailer</button>
@@ -172,9 +178,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Mansimran & Manjot</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Trailer</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Mansimran & Manjot</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Trailer</p>
             </div>
 
             <!-- Film Item 2 -->
@@ -187,9 +193,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Sanyam & Sanskruti</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Trailer</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Sanyam & Sanskruti</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Trailer</p>
             </div>
 
             <!-- Film Item 3 -->
@@ -202,9 +208,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Deepanshu & Shriya</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Trailer</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Deepanshu & Shriya</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">A celebration of love, family and every little moment in between — the full story, told in a few beautiful minutes.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Trailer</p>
             </div>
 
             <!-- Film Item 4 -->
@@ -217,9 +223,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Aakansha & Gervais</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">Two families meeting for the first time, and a celebration that folded them into one by the end of the night.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Trailer</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Aakansha & Gervais</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">Two families meeting for the first time, and a celebration that folded them into one by the end of the night.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Trailer</p>
             </div>
 
             <!-- Film Item 5 -->
@@ -232,9 +238,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Dinesh & Tanishika</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">Before the big day — an easy, joyful shoot that set the tone for everything that followed.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">Before the Vows</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Dinesh & Tanishika</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">Before the big day — an easy, joyful shoot that set the tone for everything that followed.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">Before the Vows</p>
             </div>
 
             <!-- Film Item 6 -->
@@ -247,9 +253,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Ankit & Kiran</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">Shot at 13,000 feet, between mist rolling in and breaking open for exactly one minute.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">Before the Vows</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Ankit & Kiran</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">Shot at 13,000 feet, between mist rolling in and breaking open for exactly one minute.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">Before the Vows</p>
             </div>
 
             <!-- Film Item 7 -->
@@ -262,9 +268,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Prateek & Arshiya</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">A journey of love, companionship and unwavering commitment — from endless conversations to the promise of forever.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Full Film</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Prateek & Arshiya</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">A journey of love, companionship and unwavering commitment — from endless conversations to the promise of forever.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Full Film</p>
             </div>
 
             <!-- Film Item 8 -->
@@ -277,9 +283,9 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-black mb-2">Gagan & Anubha</h3>
-                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4">From their first moments together to a new chapter as husband and wife — the emotions, happiness and bond that make their story unique.</p>
-                <p class="text-xs uppercase tracking-wider text-neutral-400">The Full Film</p>
+                <h3 class="font-serif text-2xl font-normal text-black mb-2" style="font-family: 'Cormorant Garamond', serif;">Gagan & Anubha</h3>
+                <p class="text-neutral-600 text-sm sm:text-base font-light leading-relaxed mb-4" style="font-family: 'Inter', sans-serif;">From their first moments together to a new chapter as husband and wife — the emotions, happiness and bond that make their story unique.</p>
+                <p class="text-xs uppercase tracking-wider text-neutral-400" style="font-family: 'Montserrat', sans-serif;">The Full Film</p>
             </div>
 
         </div>
@@ -290,15 +296,15 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 items-start">
             
             <div class="space-y-4">
-                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding</h3>
-                <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white" style="font-family: 'Cormorant Garamond', serif;">Dubai Pre-Wedding</h3>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed" style="font-family: 'Inter', sans-serif;">
                     Preserving your timeless love stories and authentic moments across Dubai.
                 </p>
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Explore</h4>
-                <ul class="space-y-2 text-sm text-neutral-400">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Explore</h4>
+                <ul class="space-y-2 text-sm text-neutral-400" style="font-family: 'Inter', sans-serif;">
                     <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
                     <li><a href="photography.html" class="hover:text-white transition-colors">Photography</a></li>
                     <li><a href="films.html" class="hover:text-white transition-colors">Films</a></li>
@@ -308,38 +314,38 @@
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Navigate</h4>
-                <ul class="space-y-2 text-sm text-neutral-400">
-                    <li><button onclick="openModal('faq')" class="hover:text-white transition-colors text-left cursor-pointer">FAQs</button></li>
-                    <li><button onclick="openModal('refund')" class="hover:text-white transition-colors text-left cursor-pointer">Refund Policy</button></li>
-                    <li><button onclick="openModal('privacy')" class="hover:text-white transition-colors text-left cursor-pointer">Privacy Policy</button></li>
-                    <li><button onclick="openModal('terms')" class="hover:text-white transition-colors text-left cursor-pointer">Terms &amp; Conditions</button></li>
-                    <li><button onclick="openModal('contact')" class="hover:text-white transition-colors text-left cursor-pointer">Contact Us</button></li>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Navigate</h4>
+                <ul class="space-y-2 text-sm text-neutral-400" style="font-family: 'Inter', sans-serif;">
+                    <li><a href="faq.html" class="hover:text-white transition-colors">FAQs</a></li>
+                    <li><a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a></li>
+                    <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="termsconditions.html" class="hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
                     <li><button onclick="openModal('career')" class="hover:text-white transition-colors text-left cursor-pointer">Career</button></li>
                 </ul>
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
-                <div class="space-y-2 text-sm text-neutral-400 leading-relaxed">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Get In Touch</h4>
+                <div class="space-y-2 text-sm text-neutral-400 leading-relaxed" style="font-family: 'Inter', sans-serif;">
                     <p><strong>Phone:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
                     <p><strong>Location:</strong><br>510 Act Two Tower, Downtown Dubai, UAE</p>
                 </div>
             </div>
 
             <div class="space-y-4 sm:col-span-2 lg:col-span-1">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
-                <p class="text-neutral-400 text-sm font-light leading-relaxed">Book your private consultation or reserve your session with our creative team.</p>
-                <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Let's Create Together</h4>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed" style="font-family: 'Inter', sans-serif;">Book your private consultation or reserve your session with our creative team.</p>
+                <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
                     Inquire Now
                 </a>
             </div>
         </div>
         
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center text-xs text-neutral-400 uppercase tracking-widest space-y-2">
-    <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
-    <p>Crafted by <a href="https://clickormedia.co.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Clickormedia</a></p>
-</div>
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center text-xs text-neutral-400 uppercase tracking-widest space-y-2" style="font-family: 'Montserrat', sans-serif;">
+            <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
+            <p>Crafted by <a href="https://clickormedia.co.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Clickormedia</a></p>
+        </div>
     </footer>
 
     <!-- FLOATING BOTTOM-RIGHT STICKY ICONS -->
@@ -365,12 +371,12 @@
 
     <!-- POP-UP MODAL CONTAINER FOR NAVIGATE OPTIONS -->
     <div id="info-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/80 backdrop-blur-md">
-        <div class="relative w-full max-w-2xl bg-white text-black rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-200 transform transition-transform duration-300 max-h-[85vh] overflow-y-auto">
+        <div class="relative w-full max-w-2xl bg-white text-black rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-200 transform transition-transform duration-300 max-h-[85vh] overflow-y-auto" style="font-family: 'Inter', sans-serif;">
             <button onclick="closeModal()" class="absolute top-6 right-6 text-neutral-500 hover:text-black transition-colors" aria-label="Close modal">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div class="mb-6 border-b border-neutral-200 pb-4 pr-8">
-                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black">Title</h3>
+                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Title</h3>
             </div>
             <div id="modal-content" class="text-neutral-700 text-sm sm:text-base font-light leading-relaxed space-y-4"></div>
         </div>
@@ -501,16 +507,16 @@
                     <p class="text-xs text-neutral-600 mb-4">Are you a passionate photographer, videographer, drone pilot, or editor? Submit your application below.</p>
                     <form id="career-form" class="space-y-4">
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Full Name *</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Full Name *</label>
                             <input type="text" name="Full Name" required placeholder="e.g. Rahul Verma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Phone / WhatsApp *</label>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Phone / WhatsApp *</label>
                                 <input type="tel" name="Phone" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Applying For *</label>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Applying For *</label>
                                 <select name="Applying For" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                                     <option>Photographer</option>
                                     <option>Cinematographer / Videographer</option>
@@ -520,14 +526,14 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Portfolio / Instagram Link *</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Portfolio / Instagram Link *</label>
                             <input type="url" name="Portfolio / Instagram Link" required placeholder="https://instagram.com/yourportfolio" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                         </div>
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Cover Note / Experience</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Cover Note / Experience</label>
                             <textarea name="Cover Note / Experience" rows="3" placeholder="Tell us about your gear, experience, and why you'd love to join..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
+                        <button type="submit" style="font-family: 'Montserrat', sans-serif;" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
                             Submit Application
                         </button>
                     </form>
