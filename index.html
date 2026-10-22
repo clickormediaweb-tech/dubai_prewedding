@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dubai Pre Wedding Shoot</title>
     <!-- Bootstrap 5 CDN -->
+     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Inter:wght@700&display=swap" rel="stylesheet">
-    <!-- Brittany Signature Font Import -->
-    <link href="https://fonts.cdnfonts.com/css/brittany-signature" rel="stylesheet">
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #F6F3EC;
             color: #000000;
         }
         .font-serif {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
         .font-signature {
-            font-family: 'Brittany Signature', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
         .font-inter-bold {
             font-family: 'Inter', sans-serif;
@@ -72,37 +71,57 @@
             pointer-events: auto;
             display: flex;
         }
+        /* Completely Hide Default Scrollbars for Modals & Mobile Menu */
+        #mobile-menu, #info-modal > div, #video-modal > div, #gallery-modal > div {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        #mobile-menu::-webkit-scrollbar, 
+        #info-modal > div::-webkit-scrollbar, 
+        #video-modal > div::-webkit-scrollbar, 
+        #gallery-modal > div::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
     </style>
 </head>
-<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white">
+<body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white" style="font-family: 'Inter', sans-serif;">
 
-    <!-- Navigation Bar -->
-    <header id="navbar" class="fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/25 border-b border-white/40 shadow-xl px-6 lg:px-10 h-20 flex items-center justify-between relative">
-            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-bold tracking-wider uppercase text-white drop-shadow-md whitespace-nowrap mr-4">
+    <!-- Navigation Bar (Perfectly Contained & Spaced) -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-white/10 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
+            
+            <!-- Left: Brand Title -->
+            <a href="index.html" class="font-serif text-xs sm:text-sm lg:text-base font-semibold tracking-[0.12em] uppercase text-white whitespace-nowrap pr-4" style="font-family: 'Montserrat', sans-serif;">
                 Dubai Pre Wedding Shoot
             </a>
 
-            <nav class="hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs xl:text-sm font-medium tracking-wide text-white drop-shadow-md">
-                <a href="index.html" class="hover:opacity-60 transition-opacity">Home</a>
-                <a href="photography.html" class="hover:opacity-60 transition-opacity">Photography</a>
-                <a href="films.html" class="hover:opacity-60 transition-opacity">Films</a>
-                <a href="packages.html" class="hover:opacity-60 transition-opacity">Packages</a>
-                <a href="testimonials.html" class="hover:opacity-60 transition-opacity">Testimonials</a>
-                <a href="blog.html" class="hover:opacity-60 transition-opacity">Blog</a>
-                <a href="contact.html" class="hover:opacity-60 transition-opacity">Contact</a>
-                <a href="getintouch.html" class="px-4 py-2 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors">Get in Touch</a>
-            </nav>
+            <!-- Desktop Navigation Links & CTA -->
+            <div class="hidden lg:flex items-center space-x-5 xl:space-x-8">
+                <nav class="flex items-center space-x-4 xl:space-x-6 text-[11px] xl:text-xs font-medium tracking-[0.15em] text-neutral-300 uppercase" style="font-family: 'Montserrat', sans-serif;">
+                    <a href="index.html" class="text-white font-semibold underline underline-offset-4">Home</a>
+                    <a href="photography.html" class="hover:text-white transition-colors">Photography</a>
+                    <a href="films.html" class="hover:text-white transition-colors">Films</a>
+                    <a href="packages.html" class="hover:text-white transition-colors">Packages</a>
+                    <a href="testimonials.html" class="hover:text-white transition-colors">Testimonials</a>
+                    <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                </nav>
+                
+                <a href="getintouch.html" style="font-family: 'Montserrat', sans-serif;" class="px-5 py-2.5 bg-transparent border border-white/40 text-white rounded-full text-[11px] xl:text-xs font-semibold uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-300 shadow-sm whitespace-nowrap">
+                    Get in Touch
+                </a>
+            </div>
 
-            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95" aria-label="Toggle Menu">
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="lg:hidden p-2.5 focus:outline-none text-white bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-transform active:scale-95 ml-auto" aria-label="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
-            <!-- Right-Aligned Compact Scrollbar-Free Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50">
-                <a href="index.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Home</a>
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden absolute top-24 right-6 w-72 sm:w-80 bg-black/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 space-y-3 shadow-2xl max-h-[75vh] overflow-y-auto z-50" style="font-family: 'Montserrat', sans-serif;">
+                <a href="index.html" class="block text-sm font-semibold tracking-wide text-white underline underline-offset-4 hover:text-white py-1.5 border-b border-white/10">Home</a>
                 <a href="photography.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Photography</a>
                 <a href="films.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Films</a>
                 <a href="packages.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Packages</a>
@@ -110,7 +129,7 @@
                 <a href="blog.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Blog</a>
                 <a href="contact.html" class="block text-sm font-medium tracking-wide text-neutral-200 hover:text-white py-1.5 border-b border-white/10">Contact</a>
                 <div class="pt-2">
-                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
+                    <a href="getintouch.html" class="block text-center py-2.5 bg-white text-black rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow">Get in Touch</a>
                 </div>
             </div>
         </div>
@@ -121,17 +140,17 @@
         <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
             <div class="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[110vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2">
                 <video id="hero-video" autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="dubaiindex.mp4" type="video/mp4">
+                    <source src="dubaihero.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-24">
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight mb-2 drop-shadow-lg">
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight mb-2 drop-shadow-lg" style="font-family: 'Cormorant Garamond', serif;">
                 DubaiPreWedding
             </h1>
-            <p class="text-white/90 text-xs sm:text-sm md:text-base font-light tracking-widest drop-shadow-md">
+            <p class="text-white/90 text-xs sm:text-sm md:text-base font-light tracking-widest drop-shadow-md" style="font-family: 'Montserrat', sans-serif;">
                 Stories of Love & Joy of Weddings
             </p>
         </div>
@@ -150,403 +169,547 @@
         </button>
     </section>
 
-    <!-- SECTION 2: Frames of Forever (Mobile-Optimized & Laptop Original Layouts) -->
-    <section id="about" class="py-16 md:py-32 px-6 md:px-16 bg-[#F6F3EC] relative overflow-hidden">
+    <!-- SECTION 2: Signature Services -->
+    <section id="services" class="pt-20 pb-10 px-6 md:px-12 lg:px-20 bg-[#F6F3EC] relative overflow-hidden">
         
-        <!-- MOBILE VIEW (Visible only on mobile/tablet via block lg:hidden) -->
-        <div class="block lg:hidden max-w-4xl mx-auto space-y-8 text-center">
-            <div class="space-y-1">
-                <p class="font-signature text-4xl text-neutral-900 leading-none">Frames Of Forever</p>
-            </div>
-
-            <div class="space-y-6">
-                <!-- VISUAL Block -->
-                <div class="space-y-3">
-                    <h2 class="font-inter-bold text-5xl tracking-wide uppercase text-black leading-none">
-                        VISUAL
-                    </h2>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="h-40 rounded-xl overflow-hidden shadow-md border-2 border-white">
-                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Wedding Detail" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-40 rounded-xl overflow-hidden shadow-md border-2 border-white">
-                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Couple Portrait" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- STORIES Block -->
-                <div class="space-y-3 pt-2">
-                    <h2 class="font-inter-bold text-5xl tracking-wide uppercase text-black leading-none">
-                        STORIES
-                    </h2>
-                    <div class="h-48 rounded-xl overflow-hidden shadow-md border-2 border-white">
-                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ceremony Moment" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
+        <!-- Background Decorative Watermark -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 text-[12vw] font-serif italic text-black/[0.03] select-none pointer-events-none whitespace-nowrap z-0" style="font-family: 'Cormorant Garamond', serif;">
+            Experiences
         </div>
 
-        <!-- LAPTOP / DESKTOP VIEW (Visible only on lg screens and above via hidden lg:block) -->
-        <div class="hidden lg:block max-w-[1350px] mx-auto relative">
+        <div class="max-w-7xl mx-auto relative z-10 space-y-12">
             
-            <!-- Top Cursive Script Header -->
-            <div class="text-center mb-8 z-30">
-                <p class="font-signature text-7xl text-neutral-900 leading-none">Frames Of Forever</p>
-            </div>
-
-            <!-- Row 1: Left Landscape Image, VISUAL Text, Right Portrait Image -->
-            <div class="w-full flex items-center justify-between gap-2 relative z-20">
-                
-                <!-- Left Landscape Image -->
-                <div class="w-[350px] h-[215px] rounded-md overflow-hidden shadow-xl border-4 border-white transform -rotate-1 shrink-0 z-20">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Detail" class="w-full h-full object-cover">
-                </div>
-
-                <!-- Center Text: VISUAL (Inter Bold) -->
-                <div class="text-center z-10 py-1">
-                    <h2 class="font-inter-bold text-[10rem] tracking-wide uppercase text-black leading-none select-none">
-                        VISUAL
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-black/15 pb-8 gap-6">
+                <div class="space-y-3">
+                    <span style="font-family: 'Montserrat', sans-serif;" class="text-xs uppercase tracking-[0.3em] font-medium text-neutral-500 block">
+                        Curated Luxury Packages
+                    </span>
+                    <h2 class="font-serif italic text-4xl sm:text-5xl md:text-6xl text-black font-normal leading-[1.1]" style="font-family: 'Cormorant Garamond', serif;">
+                        Signature Offerings
                     </h2>
                 </div>
-
-                <!-- Right Portrait Image -->
-                <div class="w-[310px] h-[430px] rounded-md overflow-hidden shadow-2xl border-4 border-white shrink-0 z-30 -mt-10">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Couple Portrait" class="w-full h-full object-cover">
-                </div>
-
+                <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-sm md:text-base font-light max-w-md leading-relaxed">
+                    Elevate your pre-wedding story with Dubai’s most elite cinematic backdrops, meticulously styled for modern couples.
+                </p>
             </div>
 
-            <!-- Row 2: STORIES Text & Center Square Image -->
-            <div class="w-full flex items-center justify-start gap-12 relative -mt-24 z-20">
+            <!-- Services Editorial Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 
-                <!-- Text: STORIES (Inter Bold) -->
-                <div class="text-left z-10">
-                    <h2 class="font-inter-bold text-[10rem] tracking-wide uppercase text-black leading-none select-none">
-                        STORIES
-                    </h2>
+                <!-- Service 1: Sports Car -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-xl border border-neutral-200/60 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="relative h-72 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Sports Car Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <span style="font-family: 'Montserrat', sans-serif;" class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/40 backdrop-blur-md text-white rounded-full font-medium">
+                            01 / Ride
+                        </span>
+                    </div>
+                    <div class="px-3 pb-4 space-y-4 flex flex-col flex-grow justify-between">
+                        <div class="space-y-2">
+                            <h3 class="font-serif italic text-3xl text-black" style="font-family: 'Cormorant Garamond', serif;">Sports Car Shoot</h3>
+                            <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed">
+                                Pose alongside high-end supercars against the glittering skyline of Downtown Dubai and iconic architectural landmarks.
+                            </p>
+                        </div>
+                        <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-black group-hover:opacity-60 transition-opacity pt-2">
+                            Inquire Experience &rarr;
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Center Square Image positioned right below VISUAL next to STORIES -->
-                <div class="w-[290px] h-[205px] rounded-md overflow-hidden shadow-xl border-4 border-white shrink-0 z-20 ml-8">
-                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ceremony Moment" class="w-full h-full object-cover">
+                <!-- Service 2: Flying Dress -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-xl border border-neutral-200/60 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="relative h-72 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Flying Dress Experience" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <span style="font-family: 'Montserrat', sans-serif;" class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/40 backdrop-blur-md text-white rounded-full font-medium">
+                            02 / Fashion
+                        </span>
+                    </div>
+                    <div class="px-3 pb-4 space-y-4 flex flex-col flex-grow justify-between">
+                        <div class="space-y-2">
+                            <h3 class="font-serif italic text-3xl text-black" style="font-family: 'Cormorant Garamond', serif;">Flying Dress</h3>
+                            <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed">
+                                Majestic silk gowns billowing dramatically across sweeping golden desert dunes or dramatic coastal horizons.
+                            </p>
+                        </div>
+                        <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-black group-hover:opacity-60 transition-opacity pt-2">
+                            Inquire Experience &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Yacht -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-xl border border-neutral-200/60 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="relative h-72 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Yacht Charter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <span style="font-family: 'Montserrat', sans-serif;" class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/40 backdrop-blur-md text-white rounded-full font-medium">
+                            03 / Nautical
+                        </span>
+                    </div>
+                    <div class="px-3 pb-4 space-y-4 flex flex-col flex-grow justify-between">
+                        <div class="space-y-2">
+                            <h3 class="font-serif italic text-3xl text-black" style="font-family: 'Cormorant Garamond', serif;">Yacht Charter</h3>
+                            <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed">
+                                Sail across turquoise waters on a private luxury yacht overlooking the Atlantis horizon and Dubai Marina.
+                            </p>
+                        </div>
+                        <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-black group-hover:opacity-60 transition-opacity pt-2">
+                            Inquire Experience &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Helicopter -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-xl border border-neutral-200/60 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="relative h-72 rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Helicopter Ride Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <span style="font-family: 'Montserrat', sans-serif;" class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] px-3.5 py-1.5 bg-black/40 backdrop-blur-md text-white rounded-full font-medium">
+                            04 / Aerial
+                        </span>
+                    </div>
+                    <div class="px-3 pb-4 space-y-4 flex flex-col flex-grow justify-between">
+                        <div class="space-y-2">
+                            <h3 class="font-serif italic text-3xl text-black" style="font-family: 'Cormorant Garamond', serif;">Helicopter Ride</h3>
+                            <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed">
+                                Capture breathtaking cinematic bird's-eye perspectives and high-flying romance above Palm Jumeirah.
+                            </p>
+                        </div>
+                        <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-black group-hover:opacity-60 transition-opacity pt-2">
+                            Inquire Experience &rarr;
+                        </a>
+                    </div>
                 </div>
 
             </div>
 
         </div>
-
     </section>
 
-    <!-- SECTION 3: Journey & Destinations (Responsive: Stacked Reference Layout on Mobile, Original Multi-Column Layout on Laptop) -->
-    <section class="py-24 bg-white border-y border-black/10 overflow-hidden">
+    <!-- SECTION 3: Journey & Destinations -->
+    <section id="journey-section" class="pt-16 pb-24 bg-white border-y border-black/10 overflow-hidden">
         
-        <!-- MOBILE VIEW (Visible only on mobile/tablet via block lg:hidden) -->
+        <!-- MOBILE VIEW -->
         <div class="block lg:hidden max-w-4xl mx-auto px-6 space-y-10">
-            <div class="space-y-2">
-                <p class="font-signature text-5xl text-neutral-900 leading-none">Glimpse Of</p>
-                <h2 class="font-serif text-3xl font-bold tracking-tight text-black uppercase leading-[1.15] pt-1">
+            <div class="space-y-2 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+                <p class="font-signature text-5xl text-neutral-900 leading-none" style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Glimpse Of</p>
+                <h2 class="font-serif text-3xl font-bold tracking-tight text-black uppercase leading-[1.15] pt-1" style="font-family: 'Montserrat', sans-serif;">
                     DUBAI PRE-WEDDING'S JOURNEY
                 </h2>
             </div>
 
             <!-- 2019 / Established -->
-            <div class="border-b border-black/10 pb-6 space-y-2">
-                <div class="font-serif text-5xl font-normal text-black tracking-tight">2019</div>
+            <div class="border-b border-black/10 pb-6 space-y-2 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-150 transform hover:-translate-y-1 hover:translate-x-1 transition-all duration-300 cursor-default">
+                <div class="font-serif text-5xl font-normal text-black tracking-tight" style="font-family: 'Cormorant Garamond', serif;">2019</div>
                 <div class="flex items-center space-x-3 text-neutral-800 font-medium">
-                    <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                    <span class="text-sm tracking-wide">Established in</span>
+                    <svg class="w-5 h-5 text-black shrink-0 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    <span class="text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">Established in</span>
                 </div>
             </div>
 
             <!-- Moving/Animated 280+ Weddings Counter -->
-            <div class="border-b border-black/10 pb-6 space-y-2">
-                <div class="font-serif text-5xl font-normal text-red-600/90 tracking-tight">
+            <div class="border-b border-black/10 pb-6 space-y-2 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-300 transform hover:-translate-y-1 hover:translate-x-1 transition-all duration-300 cursor-default">
+                <div class="font-serif text-5xl font-normal text-red-600/90 tracking-tight" style="font-family: 'Cormorant Garamond', serif;">
                     <span id="counter-value-mob">0</span>+
                 </div>
                 <div class="flex items-center space-x-3 text-neutral-800 font-medium">
-                    <svg class="w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    <span class="text-sm tracking-wide">Weddings</span>
+                    <svg class="w-5 h-5 text-black shrink-0 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    <span class="text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">Weddings</span>
                 </div>
             </div>
 
             <!-- Team -->
-            <div class="border-b border-black/10 pb-6 space-y-3">
-                <h3 class="font-serif text-2xl font-normal text-black">Team</h3>
+            <div class="border-b border-black/10 pb-6 space-y-3 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-450 transform hover:-translate-y-1 hover:translate-x-1 transition-all duration-300 cursor-default">
+                <h3 class="font-serif text-2xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Team</h3>
                 <div class="flex items-start space-x-3 text-neutral-800">
-                    <svg class="w-5 h-5 mt-0.5 shrink-0 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                    <p class="text-sm leading-relaxed font-normal">In-House team of photographers, videographers and editors</p>
+                    <svg class="w-5 h-5 mt-0.5 shrink-0 text-black transition-transform duration-500 hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <p class="text-sm leading-relaxed font-normal" style="font-family: 'Inter', sans-serif;">In-House team of photographers, videographers and editors</p>
                 </div>
             </div>
 
             <!-- Approach -->
-            <div class="border-b border-black/10 pb-6 space-y-3">
-                <h3 class="font-serif text-2xl font-normal text-black">Approach</h3>
+            <div class="border-b border-black/10 pb-6 space-y-3 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-600 transform hover:-translate-y-1 hover:translate-x-1 transition-all duration-300 cursor-default">
+                <h3 class="font-serif text-2xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Approach</h3>
                 <div class="flex items-start space-x-3 text-neutral-800">
-                    <svg class="w-5 h-5 mt-0.5 shrink-0 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <p class="text-sm leading-relaxed font-normal">Process-Oriented</p>
+                    <svg class="w-5 h-5 mt-0.5 shrink-0 text-black transition-transform duration-500 hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <p class="text-sm leading-relaxed font-normal" style="font-family: 'Inter', sans-serif;">Process-Oriented</p>
                 </div>
             </div>
 
-            <!-- 10+ Iconic Dubai Destinations Grid -->
-            <div class="space-y-6 pt-2">
-                <h3 class="font-serif text-3xl font-normal text-black tracking-tight">10+ Iconic Dubai Destinations</h3>
+            <!-- Clickable Destinations Grid -->
+            <div class="space-y-6 pt-2 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-750">
+                <h3 class="font-serif text-3xl font-normal text-black tracking-tight" style="font-family: 'Cormorant Garamond', serif;">10+ Iconic Dubai Destinations</h3>
                 
                 <div class="grid grid-cols-3 gap-6 pt-2 text-center">
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=200&q=80" alt="Burj Khalifa" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Burj Khalifa</span>
+                    <div onclick="openGalleryModal('dest1')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=200&q=80" alt="Burj Khalifa" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Burj Khalifa</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Dubai Desert" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Dubai Desert</span>
+                    <div onclick="openGalleryModal('dest2')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Dubai Desert" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Dubai Desert</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80" alt="Palm Jumeirah" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Palm Jumeirah</span>
+                    <div onclick="openGalleryModal('dest3')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80" alt="Palm Jumeirah" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Palm Jumeirah</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=200&q=80" alt="Dubai Marina" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Dubai Marina</span>
+                    <div onclick="openGalleryModal('dest4')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=200&q=80" alt="Dubai Marina" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Dubai Marina</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" alt="Miracle Garden" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Miracle Garden</span>
+                    <div onclick="openGalleryModal('dest5')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" alt="Miracle Garden" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Miracle Garden</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border border-neutral-300"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=200&q=80" alt="Atlantis Royal" class="w-full h-full object-cover"></div>
-                        <span class="text-xs font-medium text-neutral-800">Atlantis Royal</span>
+                    <div onclick="openGalleryModal('dest6')" class="flex flex-col items-center space-y-2 cursor-pointer group">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-black/20 group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out">
+                            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=200&q=80" alt="Atlantis Royal" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out">
+                        </div>
+                        <span class="text-xs font-medium text-neutral-800 group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Atlantis Royal</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- LAPTOP / DESKTOP VIEW (Visible only on lg screens and above via hidden lg:block) -->
+        <!-- LAPTOP / DESKTOP VIEW -->
         <div class="hidden lg:block max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                <div class="lg:col-span-4 space-y-1">
-                    <p class="font-signature text-6xl text-neutral-900 leading-none">Glimpse Of</p>
-                    <h2 class="font-serif text-5xl font-bold tracking-tight text-black uppercase leading-[1.15] pt-2">
+                <div class="lg:col-span-4 space-y-1 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+                    <p class="font-signature text-6xl text-neutral-900 leading-none" style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Glimpse Of</p>
+                    <h2 class="font-serif text-5xl font-bold tracking-tight text-black uppercase leading-[1.15] pt-2" style="font-family: 'Montserrat', sans-serif;">
                         DUBAI PRE-WEDDING'S<br>JOURNEY
                     </h2>
                 </div>
 
                 <div class="lg:col-span-4 space-y-8">
-                    <div>
-                        <div class="font-serif text-7xl font-normal text-black tracking-tight mb-2">2019</div>
+                    <div class="anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-200 transform hover:-translate-y-2 hover:translate-x-1 transition-all duration-300 cursor-default p-4 rounded-xl hover:bg-neutral-50/80 border border-transparent hover:border-black/5 shadow-none hover:shadow-lg">
+                        <div class="font-serif text-7xl font-normal text-black tracking-tight mb-2" style="font-family: 'Cormorant Garamond', serif;">2019</div>
                         <div class="flex items-center space-x-2.5 text-neutral-800 font-medium pt-1">
-                            <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                            <span class="text-sm tracking-wide">Established in</span>
+                            <svg class="w-5 h-5 text-black animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            <span class="text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">Established in</span>
                         </div>
                     </div>
 
-                    <div class="pt-8 border-t border-black/15 space-y-4">
-                        <h3 class="font-serif text-3xl font-normal text-black">Team</h3>
+                    <div class="pt-4 border-t border-black/15 space-y-4 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-400 transform hover:-translate-y-2 hover:translate-x-1 transition-all duration-300 cursor-default p-4 rounded-xl hover:bg-neutral-50/80 border border-transparent hover:border-black/5 shadow-none hover:shadow-lg">
+                        <h3 class="font-serif text-3xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Team</h3>
                         <div class="flex items-start space-x-3 text-neutral-800">
-                            <svg class="w-5 h-5 mt-1 shrink-0 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                            <p class="text-sm leading-relaxed font-normal">In-House team of photographers, videographers and editors</p>
+                            <svg class="w-5 h-5 mt-1 shrink-0 text-black transition-transform duration-500 hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                            <p class="text-sm leading-relaxed font-normal" style="font-family: 'Inter', sans-serif;">In-House team of photographers, videographers and editors</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-4 space-y-8">
-                    <div>
-                        <div class="font-serif text-7xl font-normal text-red-600/90 tracking-tight mb-2">
+                    <div class="anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-300 transform hover:-translate-y-2 hover:translate-x-1 transition-all duration-300 cursor-default p-4 rounded-xl hover:bg-neutral-50/80 border border-transparent hover:border-black/5 shadow-none hover:shadow-lg">
+                        <div class="font-serif text-7xl font-normal text-red-600/90 tracking-tight mb-2" style="font-family: 'Cormorant Garamond', serif;">
                             <span id="counter-value-desk">0</span>+
                         </div>
                         <div class="flex items-center space-x-2.5 text-neutral-800 font-medium pt-1">
-                            <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                            <span class="text-sm tracking-wide">Weddings</span>
+                            <svg class="w-5 h-5 text-black animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            <span class="text-sm tracking-wide" style="font-family: 'Inter', sans-serif;">Weddings</span>
                         </div>
                     </div>
 
-                    <div class="pt-8 border-t border-black/15 space-y-4">
-                        <h3 class="font-serif text-3xl font-normal text-black">Approach</h3>
+                    <div class="pt-4 border-t border-black/15 space-y-4 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-500 transform hover:-translate-y-2 hover:translate-x-1 transition-all duration-300 cursor-default p-4 rounded-xl hover:bg-neutral-50/80 border border-transparent hover:border-black/5 shadow-none hover:shadow-lg">
+                        <h3 class="font-serif text-3xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Approach</h3>
                         <div class="flex items-start space-x-3 text-neutral-800">
-                            <svg class="w-5 h-5 mt-1 shrink-0 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            <p class="text-sm leading-relaxed font-normal">Process-Oriented</p>
+                            <svg class="w-5 h-5 mt-1 shrink-0 text-black transition-transform duration-500 hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <p class="text-sm leading-relaxed font-normal" style="font-family: 'Inter', sans-serif;">Process-Oriented</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16 pt-10 pb-6 border-t border-black/10">
+            <div class="mt-16 pt-10 pb-6 border-t border-black/10 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-650">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div class="hidden lg:block lg:col-span-4"></div>
                     <div class="lg:col-span-8 space-y-6">
                         <div>
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black tracking-tight">10+ Iconic Dubai Destinations</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-black tracking-tight" style="font-family: 'Cormorant Garamond', serif;">10+ Iconic Dubai Destinations</h3>
                         </div>
-                        <div class="flex items-center justify-between gap-3 overflow-x-auto pb-2">
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=200&q=80" alt="Burj Khalifa" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Burj Khalifa</span>
+                        <div class="flex items-center justify-between gap-4 overflow-x-auto pb-3">
+                            <div onclick="openGalleryModal('dest1')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=200&q=80" alt="Burj Khalifa" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Burj Khalifa</span>
                             </div>
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Dubai Desert" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Dubai Desert</span>
+                            <div onclick="openGalleryModal('dest2')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Dubai Desert" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Dubai Desert</span>
                             </div>
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80" alt="Palm Jumeirah" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Palm Jumeirah</span>
+                            <div onclick="openGalleryModal('dest3')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80" alt="Palm Jumeirah" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Palm Jumeirah</span>
                             </div>
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=200&q=80" alt="Dubai Marina" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Dubai Marina</span>
+                            <div onclick="openGalleryModal('dest4')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=200&q=80" alt="Dubai Marina" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Dubai Marina</span>
                             </div>
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" alt="Miracle Garden" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Miracle Garden</span>
+                            <div onclick="openGalleryModal('dest5')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=200&q=80" alt="Miracle Garden" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Miracle Garden</span>
                             </div>
-                            <div class="flex flex-col items-center flex-shrink-0">
-                                <div class="w-10 h-10 rounded-full overflow-hidden border border-neutral-300 shadow-sm"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=200&q=80" alt="Atlantis Royal" class="w-full h-full object-cover"></div>
-                                <span class="text-xs text-neutral-800 mt-1 font-medium whitespace-nowrap">Atlantis Royal</span>
+                            <div onclick="openGalleryModal('dest6')" class="flex flex-col items-center flex-shrink-0 cursor-pointer group">
+                                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-black/20 shadow-sm group-hover:-translate-y-2 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-black transition-all duration-500 ease-out"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=200&q=80" alt="Atlantis Royal" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"></div>
+                                <span class="text-xs text-neutral-800 mt-1.5 font-medium whitespace-nowrap group-hover:text-black group-hover:font-semibold transition-all duration-300" style="font-family: 'Inter', sans-serif;">Atlantis Royal</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
 
-    <!-- SECTION 4: Photography Gallery Grid -->
-    <section id="photography" class="py-24 px-6 bg-custom-cream">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <h2 class="font-serif text-4xl sm:text-5xl font-normal tracking-tight">GALLERY</h2>
+    <!-- SECTION 4: Photography Gallery Grid (Seamless Immersive Layout with Event Listeners) -->
+    <section id="photography" class="py-24 bg-custom-cream">
+        <div class="max-w-7xl mx-auto text-center mb-16 px-6">
+            <h2 class="font-serif text-4xl sm:text-5xl font-normal tracking-tight" style="font-family: 'Cormorant Garamond', serif;">GALLERY</h2>
             <p class="text-neutral-600 mt-3 font-light">Captured moments that live eternally</p>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 max-w-[1450px] mx-auto">
-            <div onclick="openGalleryModal('gallery1')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery2')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery3')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery4')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery5')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery6')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery7')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="bg-white text-black flex flex-col items-center justify-center p-6 text-center h-56 shadow-md border border-neutral-200">
-                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mb-1">the moments you’ll want to</p>
-                <p class="font-serif text-2xl font-normal tracking-wide">"Frame"</p>
-                <p class="font-serif italic text-xs tracking-wider text-neutral-500 mt-1">for a lifetime.</p>
-            </div>
-            <div onclick="openGalleryModal('gallery8')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery9')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery10')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery11')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery12')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery13')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div onclick="openGalleryModal('gallery14')" class="overflow-hidden group h-56 cursor-pointer relative">
-                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <!-- Fluid container with side margins and zero gaps between images -->
+        <div class="w-[92%] sm:w-[94%] lg:w-[95%] mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="6">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="bg-white text-black flex flex-col items-center justify-center p-6 text-center h-56 sm:h-64 lg:h-72 shadow-inner border border-neutral-200">
+                    <p class="font-serif italic text-xs tracking-wider text-neutral-500 mb-1" style="font-family: 'Cormorant Garamond', serif;">the moments you’ll want to</p>
+                    <p class="font-serif text-2xl font-normal tracking-wide" style="font-family: 'Cormorant Garamond', serif;">"Frame"</p>
+                    <p class="font-serif italic text-xs tracking-wider text-neutral-500 mt-1" style="font-family: 'Cormorant Garamond', serif;">for a lifetime.</p>
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="7">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="8">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="9">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="10">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Gallery 11" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="11">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Gallery 12" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="12">
+                    <img src="https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=800&q=80" alt="Gallery 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
+                <div class="gallery-card overflow-hidden group h-56 sm:h-64 lg:h-72 cursor-pointer relative" data-index="13">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Gallery 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none">
+                </div>
             </div>
         </div>
 
-        <div class="text-center mt-16">
-            <a href="photography.html" class="inline-block px-10 py-4 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors shadow-xl">
+        <div class="text-center mt-16 px-6">
+            <a href="photography.html" style="font-family: 'Montserrat', sans-serif;" class="inline-block px-10 py-4 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-800 transition-colors shadow-xl">
                 Explore More &rarr;
             </a>
         </div>
     </section>
 
-    <!-- SECTION 5: Films Section -->
-    <section id="films" class="py-36 px-6 bg-black text-white slanted-cinematic">
-        <div class="max-w-7xl mx-auto text-center mb-16 pt-4">
-            <h2 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight mb-4 text-white">LET'S GET Cinematic</h2>
+    <!-- Gallery Modal Popup with Navigation Arrows (Borderless Full View) -->
+    <div id="galleryModal" class="hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4">
+        <!-- Close Button -->
+        <button id="closeModalBtn" class="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-50 cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <!-- Previous Arrow Button -->
+        <button id="prevBtn" class="absolute left-6 text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-50 cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <!-- Next Arrow Button -->
+        <button id="nextBtn" class="absolute right-6 text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-colors z-50 cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Modal Content Container (No Inner Box) -->
+        <div class="max-w-5xl w-full flex flex-col items-center justify-center text-center relative px-12">
+            <div class="h-[70vh] flex items-center justify-center overflow-hidden mb-4">
+                <img id="modalImage" src="" alt="Gallery Preview" class="max-h-full max-w-full object-contain rounded-lg shadow-2xl">
+            </div>
+            <div class="space-y-1">
+                <h3 id="modalTitle" class="font-serif text-2xl sm:text-3xl text-white tracking-wide" style="font-family: 'Cormorant Garamond', serif;"></h3>
+                <p id="modalSubtitle" class="text-xs uppercase tracking-widest text-neutral-400" style="font-family: 'Montserrat', sans-serif;"></p>
+                <div id="modalCounter" class="text-xs text-neutral-500 pt-1 font-mono" style="font-family: 'Inter', sans-serif;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Handling Modal and Arrows via Event Listeners -->
+    <script>
+        const galleryItems = [
+            { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80", title: "Aakansha & Gervais", subtitle: "Desert Golden Hour Feature" },
+            { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80", title: "Abhineet & Prakriti", subtitle: "Downtown Dubai Skyline Story" },
+            { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80", title: "Sanyam & Sanskruti", subtitle: "Royal Yacht & Marina Elegance" },
+            { src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80", title: "Mansimran & Manjot", subtitle: "Historic Al Fahidi Romance" },
+            { src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80", title: "Royal Celebration", subtitle: "Palm Jumeirah Luxury" },
+            { src: "https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80", title: "Elegance in Motion", subtitle: "Flying Dress Shoot" },
+            { src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80", title: "Sunset Romance", subtitle: "Miracle Garden Story" },
+            { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80", title: "Golden Hour Magic", subtitle: "Dubai Desert Romance" },
+            { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80", title: "City Lights", subtitle: "Downtown Evening Shoot" },
+            { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80", title: "Timeless Vows", subtitle: "Beachside Celebration" },
+            { src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80", title: "Candid Moments", subtitle: "Joyful Celebrations" },
+            { src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80", title: "Royal Arch", subtitle: "Heritage Location Story" },
+            { src: "https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80", title: "Intimate Affair", subtitle: "Private Resort Framing" },
+            { src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80", title: "Forever After", subtitle: "Eternity Captured" }
+        ];
+
+        let currentIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.gallery-card');
+            const modal = document.getElementById('galleryModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            cards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    currentIndex = parseInt(card.getAttribute('data-index'));
+                    updateModalContent();
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateModalContent();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateModalContent();
+            });
+        });
+
+        function updateModalContent() {
+            const item = galleryItems[currentIndex];
+            document.getElementById('modalImage').src = item.src;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalSubtitle').textContent = item.subtitle;
+            document.getElementById('modalCounter').textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+        }
+    </script>
+
+    <!-- SECTION 5: Films Section (True Fluid Immersive Scaling) -->
+    <section id="films" class="py-32 bg-black text-white slanted-cinematic">
+        <div class="w-[90%] max-w-4xl mx-auto text-center mb-16 pt-4">
+            <h2 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight mb-4 text-white" style="font-family: 'Cormorant Garamond', serif;">LET'S GET Cinematic</h2>
             <p class="text-neutral-400 max-w-2xl mx-auto text-sm sm:text-base font-light leading-relaxed">
                 Films are where our journey began. We craft pre-wedding films that feel less like videos and more like cinema — your chemistry, your laughter, your little moments, captured with real emotion and crafted with the patience of a feature film.
             </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-            <div onclick="openVideoModal('film1')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
-                <div class="h-[420px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Aakansha & Gervais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+        <!-- Fully fluid width container that remains large and expansive at any zoom level -->
+        <div class="w-[94%] sm:w-[92%] 2xl:w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            
+            <!-- Film 1 -->
+            <div onclick="openVideoModal('film1')" class="group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-2xl cursor-pointer">
+                <div class="h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+                    <img src="coverphoto4.png" alt="Aakansha & Gervais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center bg-neutral-900/90">
-                    <h3 class="font-serif text-2xl tracking-wide text-white">Aakansha & Gervais</h3>
-                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Desert Golden Hour Feature</p>
+                <div class="p-6 sm:p-8 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl sm:text-3xl tracking-wide text-white" style="font-family: 'Cormorant Garamond', serif;">Aakansha & Gervais</h3>
+                    <p class="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mt-1" style="font-family: 'Montserrat', sans-serif;">Desert Golden Hour Feature</p>
                 </div>
             </div>
 
-            <div onclick="openVideoModal('film2')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
-                <div class="h-[420px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" alt="Abhineet & Prakriti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+            <!-- Film 2 -->
+            <div onclick="openVideoModal('film2')" class="group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-2xl cursor-pointer">
+                <div class="h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+                    <img src="coverphoto3.png" alt="Dhruvil & Zalak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center bg-neutral-900/90">
-                    <h3 class="font-serif text-2xl tracking-wide text-white">Abhineet & Prakriti</h3>
-                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Downtown Dubai Skyline Story</p>
+                <div class="p-6 sm:p-8 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl sm:text-3xl tracking-wide text-white" style="font-family: 'Cormorant Garamond', serif;">Dhruvil & Zalak</h3>
+                    <p class="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mt-1" style="font-family: 'Montserrat', sans-serif;">Downtown Dubai Skyline Story</p>
                 </div>
             </div>
 
-            <div onclick="openVideoModal('film3')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
-                <div class="h-[420px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80" alt="Sanyam & Sanskruti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+            <!-- Film 3 -->
+            <div onclick="openVideoModal('film3')" class="group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-2xl cursor-pointer">
+                <div class="h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+                    <img src="coverphoto2.png" alt="Raghav & Garima" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center bg-neutral-900/90">
-                    <h3 class="font-serif text-2xl tracking-wide text-white">Sanyam & Sanskruti</h3>
-                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Royal Yacht & Marina Elegance</p>
+                <div class="p-6 sm:p-8 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl sm:text-3xl tracking-wide text-white" style="font-family: 'Cormorant Garamond', serif;">Raghav & Garima</h3>
+                    <p class="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mt-1" style="font-family: 'Montserrat', sans-serif;">Royal Yacht & Marina Elegance</p>
                 </div>
             </div>
 
-            <div onclick="openVideoModal('film4')" class="group relative overflow-hidden bg-neutral-900 rounded-lg shadow-2xl cursor-pointer">
-                <div class="h-[420px] overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" alt="Mansimran & Manjot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
+            <!-- Film 4 -->
+            <div onclick="openVideoModal('film4')" class="group relative overflow-hidden bg-neutral-900 rounded-2xl shadow-2xl cursor-pointer">
+                <div class="h-[400px] sm:h-[480px] lg:h-[540px] overflow-hidden">
+                    <img src="coverphoto1.png" alt="Mansimran & Manjot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                <div class="p-6 text-center bg-neutral-900/90">
-                    <h3 class="font-serif text-2xl tracking-wide text-white">Mansimran & Manjot</h3>
-                    <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Historic Al Fahidi Romance</p>
+                <div class="p-6 sm:p-8 text-center bg-neutral-900/90">
+                    <h3 class="font-serif text-2xl sm:text-3xl tracking-wide text-white" style="font-family: 'Cormorant Garamond', serif;">Mansimran & Manjot</h3>
+                    <p class="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 mt-1" style="font-family: 'Montserrat', sans-serif;">Historic Al Fahidi Romance</p>
                 </div>
             </div>
+
         </div>
 
         <div class="text-center mt-16">
-            <a href="films.html" class="inline-block px-10 py-4 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors shadow-xl">
+            <a href="films.html" style="font-family: 'Montserrat', sans-serif;" class="inline-block px-10 py-4 bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors shadow-xl">
                 Explore More Films &rarr;
             </a>
         </div>
@@ -555,11 +718,11 @@
     <!-- SECTION 6: Philosophy Quote Section -->
     <section class="py-24 px-6 bg-custom-cream text-center border-b border-black/10">
         <div class="max-w-3xl mx-auto space-y-4">
-            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-normal leading-[1.6] italic text-neutral-800">
+            <h3 class="font-serif text-xl sm:text-2xl md:text-3xl font-normal leading-[1.6] italic text-neutral-800" style="font-family: 'Cormorant Garamond', serif;">
                 “We celebrate the wild ones, the rule breakers, and the modern couples who aren’t afraid to be different. We believe the ultimate goal of a pre-wedding photographer is to capture the vibe, chemistry, and personalities that make your love story uniquely yours.”
             </h3>
             <div class="w-12 h-0.5 bg-black/20 mx-auto mt-6"></div>
-            <p class="text-xs text-neutral-600 tracking-[0.2em] uppercase pt-1 font-medium">
+            <p class="text-xs text-neutral-600 tracking-[0.2em] uppercase pt-1 font-medium" style="font-family: 'Montserrat', sans-serif;">
                 Authentic storytelling across continents and intimate moments
             </p>
         </div>
@@ -572,25 +735,148 @@
                 <img src="image 4.png" alt="Featured In Logos" class="w-auto max-w-full h-auto object-contain max-h-28 md:max-h-40 mx-auto block">
             </div>
 
-            <p class="font-serif italic text-gray-700 text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-center">
+            <p class="font-serif italic text-gray-700 text-sm md:text-base max-w-2xl mx-auto leading-relaxed text-center" style="font-family: 'Cormorant Garamond', serif;">
                 We believe your pre-wedding photos should be an enjoyable experience, not a burden. We work collaboratively to capture your love story with a relaxed and creative approach. Browse our gallery, see how we make couples shine!
             </p>
         </div>
     </section>
+
+
+    <!-- SECTION: Testimonials Preview (Animated & Ultra-Luxury Editorial Design) -->
+    <section id="testimonials-section" class="py-20 px-6 bg-[#F6F3EC] border-t border-black/10 relative overflow-hidden">
+        
+        <!-- Background Decorative Watermark -->
+        <div class="absolute bottom-10 right-1/2 translate-x-1/2 text-[14vw] font-serif italic text-black/[0.02] select-none pointer-events-none whitespace-nowrap z-0" style="font-family: 'Cormorant Garamond', serif;">
+            Love Stories
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 space-y-12">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-black/15 pb-8 gap-4 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+                <div class="space-y-2">
+                    <span style="font-family: 'Montserrat', sans-serif;" class="text-xs uppercase tracking-[0.3em] font-medium text-neutral-500 block">
+                        Real Experiences
+                    </span>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl md:text-5xl text-black font-normal leading-[1.1]" style="font-family: 'Cormorant Garamond', serif;">
+                        Words From Our Couples
+                    </h2>
+                </div>
+                <p style="font-family: 'Inter', sans-serif;" class="text-neutral-600 text-xs sm:text-sm font-light max-w-md leading-relaxed">
+                    Discover how we turn fleeting moments into timeless works of art across the most iconic landscapes of Dubai.
+                </p>
+            </div>
+
+            <!-- Testimonials Editorial Grid (3 Luxury Cards with Staggered Animations) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Testimonial Card 1 -->
+                <div class="anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-150 group bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-neutral-200/85 flex flex-col justify-between space-y-6 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-neutral-100/50 rounded-full blur-2xl -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-500 text-xs tracking-widest">★★★★★</div>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-black/5 text-black rounded-full font-medium">
+                                Desert Sunset
+                            </span>
+                        </div>
+                        <p style="font-family: 'Inter', sans-serif;" class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed italic">
+                            “The sunset framing and cinematic flow across the Dubai desert captured our energy completely. The photos look like high-fashion art!”
+                        </p>
+                    </div>
+
+                    <div class="border-t border-neutral-100 pt-4 flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full overflow-hidden shadow-md border border-neutral-200 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=200&q=80" alt="Aakansha & Gervais" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-medium text-black" style="font-family: 'Cormorant Garamond', serif;">Aakansha & Gervais</h4>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[9px] uppercase tracking-widest text-neutral-400">Featured Film Couple</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-300 group bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-neutral-200/85 flex flex-col justify-between space-y-6 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-neutral-100/50 rounded-full blur-2xl -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-500 text-xs tracking-widest">★★★★★</div>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-black/5 text-black rounded-full font-medium">
+                                Skyline Story
+                            </span>
+                        </div>
+                        <p style="font-family: 'Inter', sans-serif;" class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed italic">
+                            “Working with the team felt completely effortless. They knew all the best hidden spots in Downtown Dubai and made us feel so comfortable in front of the camera.”
+                        </p>
+                    </div>
+
+                    <div class="border-t border-neutral-100 pt-4 flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full overflow-hidden shadow-md border border-neutral-200 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=200&q=80" alt="Abhineet & Prakriti" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-medium text-black" style="font-family: 'Cormorant Garamond', serif;">Abhineet & Prakriti</h4>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[9px] uppercase tracking-widest text-neutral-400">Downtown Session</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-450 group bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-neutral-200/85 flex flex-col justify-between space-y-6 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-neutral-100/50 rounded-full blur-2xl -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-amber-500 text-xs tracking-widest">★★★★★</div>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[10px] uppercase tracking-[0.2em] px-3.5 py-1 bg-black/5 text-black rounded-full font-medium">
+                                Royal Yacht
+                            </span>
+                        </div>
+                        <p style="font-family: 'Inter', sans-serif;" class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed italic">
+                            “An absolute dream experience! The yacht charter photoshoot and the cinematic video edit blew our entire family away. Worth every single moment.”
+                        </p>
+                    </div>
+
+                    <div class="border-t border-neutral-100 pt-4 flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full overflow-hidden shadow-md border border-neutral-200 shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=200&q=80" alt="Sanyam & Sanskruti" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-base font-medium text-black" style="font-family: 'Cormorant Garamond', serif;">Sanyam & Sanskruti</h4>
+                            <span style="font-family: 'Montserrat', sans-serif;" class="text-[9px] uppercase tracking-widest text-neutral-400">Yacht Charter Session</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Explore More Testimonials Button -->
+            <div class="text-center pt-2 anim-item opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-600">
+                <a href="testimonials.html" style="font-family: 'Montserrat', sans-serif;" class="inline-block px-8 py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-[0.2em] rounded-full hover:bg-neutral-800 transition-colors shadow-xl">
+                    Explore All Testimonials &rarr;
+                </a>
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- SECTION 7: Premium Footer -->
     <footer id="contact-footer" class="bg-black text-[#F6F3EC] pt-24 pb-12 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 items-start">
             
             <div class="space-y-4">
-                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white">Dubai Pre-Wedding</h3>
+                <h3 class="font-serif text-xl font-bold tracking-wider uppercase text-white" style="font-family: 'Cormorant Garamond', serif;">Dubai Pre-Wedding</h3>
                 <p class="text-neutral-400 text-sm font-light leading-relaxed">
                     Preserving your timeless love stories and authentic moments across Dubai.
                 </p>
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Explore</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Explore</h4>
                 <ul class="space-y-2 text-sm text-neutral-400">
                     <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
                     <li><a href="photography.html" class="hover:text-white transition-colors">Photography</a></li>
@@ -601,19 +887,19 @@
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Navigate</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Navigate</h4>
                 <ul class="space-y-2 text-sm text-neutral-400">
-                    <li><button onclick="openModal('faq')" class="hover:text-white transition-colors text-left cursor-pointer">FAQs</button></li>
-                    <li><button onclick="openModal('refund')" class="hover:text-white transition-colors text-left cursor-pointer">Refund Policy</button></li>
-                    <li><button onclick="openModal('privacy')" class="hover:text-white transition-colors text-left cursor-pointer">Privacy Policy</button></li>
-                    <li><button onclick="openModal('terms')" class="hover:text-white transition-colors text-left cursor-pointer">Terms &amp; Conditions</button></li>
-                    <li><button onclick="openModal('contact')" class="hover:text-white transition-colors text-left cursor-pointer">Contact Us</button></li>
+                    <li><a href="faq.html" class="hover:text-white transition-colors">FAQs</a></li>
+                    <li><a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a></li>
+                    <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="termsconditions.html" class="hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
                     <li><button onclick="openModal('career')" class="hover:text-white transition-colors text-left cursor-pointer">Career</button></li>
                 </ul>
             </div>
 
             <div class="space-y-4">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Get In Touch</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Get In Touch</h4>
                 <div class="space-y-2 text-sm text-neutral-400 leading-relaxed">
                     <p><strong>Phone:</strong><br>UAE: +971 58 8247347<br>India: +91 9855209906</p>
                     <p><strong>Location:</strong><br>510 Act Two Tower, Downtown Dubai, UAE</p>
@@ -621,15 +907,15 @@
             </div>
 
             <div class="space-y-4 sm:col-span-2 lg:col-span-1">
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white">Let's Create Together</h4>
+                <h4 class="text-xs font-semibold uppercase tracking-widest text-white" style="font-family: 'Montserrat', sans-serif;">Let's Create Together</h4>
                 <p class="text-neutral-400 text-sm font-light leading-relaxed">Book your private consultation or reserve your session with our creative team.</p>
-                <a href="contact.html" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
+                <a href="contact.html" style="font-family: 'Montserrat', sans-serif;" class="inline-block px-6 py-2.5 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
                     Inquire Now
                 </a>
             </div>
         </div>
         
-        <div class="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center text-xs text-neutral-400 uppercase tracking-widest space-y-2">
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col items-center justify-center text-center text-xs text-neutral-400 uppercase tracking-widest space-y-2" style="font-family: 'Montserrat', sans-serif;">
             <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
             <p>Crafted by <a href="https://clickormedia.co.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline">Clickormedia</a></p>
         </div>
@@ -667,9 +953,9 @@
                     <img id="gmodal-img" src="" alt="Gallery Preview" class="w-full h-full object-contain max-h-[60vh]">
                 </div>
                 <div class="space-y-2 text-center">
-                    <span id="gmodal-tag" class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Dubai Collection</span>
-                    <h3 id="gmodal-title" class="font-serif text-2xl font-normal text-white">Timeless Romance</h3>
-                    <p id="gmodal-desc" class="text-neutral-300 text-xs sm:text-sm font-light leading-relaxed max-w-lg mx-auto">
+                    <span id="gmodal-tag" class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold" style="font-family: 'Montserrat', sans-serif;">Dubai Collection</span>
+                    <h3 id="gmodal-title" class="font-serif text-2xl font-normal text-white" style="font-family: 'Cormorant Garamond', serif;">Timeless Romance</h3>
+                    <p id="gmodal-desc" class="text-neutral-300 text-xs sm:text-sm font-light leading-relaxed max-w-lg mx-auto" style="font-family: 'Inter', sans-serif;">
                         Captured during our exclusive pre-wedding sessions across the iconic landscapes of Dubai.
                     </p>
                 </div>
@@ -684,46 +970,13 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div class="mb-6 border-b border-neutral-200 pb-4 pr-8">
-                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black">Title</h3>
+                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-normal text-black" style="font-family: 'Cormorant Garamond', serif;">Title</h3>
             </div>
-            <div id="modal-content" class="text-neutral-700 text-sm sm:text-base font-light leading-relaxed space-y-4"></div>
+            <div id="modal-content" class="text-neutral-700 text-sm sm:text-base font-light leading-relaxed space-y-4" style="font-family: 'Inter', sans-serif;"></div>
         </div>
     </div>
 
-    <!-- POP-UP MODAL CONTAINER FOR CINEMATIC VIDEOS -->
-    <div id="video-modal" class="modal-hidden fixed inset-0 z-50 items-center justify-center px-4 bg-black/90 backdrop-blur-md">
-        <div class="relative w-full max-w-3xl bg-neutral-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-neutral-800 transform transition-transform duration-300 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeVideoModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white transition-colors z-20" aria-label="Close modal">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            
-            <div class="space-y-6">
-                <div class="relative w-full aspect-[16/9] bg-black rounded-xl overflow-hidden shadow-xl">
-                    <img id="vmodal-img" src="" alt="Video Preview" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/30">
-                        <div class="w-16 h-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center">
-                            <svg class="w-8 h-8 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <span id="vmodal-subtitle" class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/20 text-white rounded-full font-semibold">Category</span>
-                    <h3 id="vmodal-title" class="font-serif text-3xl font-normal text-white">Couple Name</h3>
-                    <p id="vmodal-desc" class="text-neutral-300 text-sm sm:text-base font-light leading-relaxed">
-                        Description goes here...
-                    </p>
-                </div>
-
-                <div class="pt-4 border-t border-neutral-800 flex items-center justify-between">
-                    <span class="text-xs uppercase tracking-widest text-neutral-400">Cinematic Production by Dubai Pre-Wedding</span>
-                    <a href="contact.html" class="px-6 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition-colors">
-                        Book Similar Session
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- JavaScript -->
     <script>
@@ -782,41 +1035,58 @@
             lastScrollTop = scrollTop;
         });
 
-        // Animated Number Counter for 280+
-        let counterAnimated = false;
-        function animateCounter() {
-            const elMob = document.getElementById('counter-value-mob');
-            const elDesk = document.getElementById('counter-value-desk');
-            
-            if (counterAnimated) return;
+        // Intersection Observer for Section 3 & Testimonials Scroll Animations
+    const observerOptions = {
+        root: null,
+        threshold: 0.1
+    };
 
-            const targetElement = window.innerWidth < 1024 ? elMob : elDesk;
-            if (!targetElement) return;
+    let counterAnimated = false;
 
-            const rect = targetElement.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                counterAnimated = true;
-                let current = 0;
-                const target = 280;
-                const duration = 2000;
-                const stepTime = Math.abs(Math.floor(duration / target));
-                
-                const timer = setInterval(() => {
-                    current += 4;
-                    if (current >= target) {
-                        if (elMob) elMob.innerText = target;
-                        if (elDesk) elDesk.innerText = target;
-                        clearInterval(timer);
-                    } else {
-                        if (elMob) elMob.innerText = current;
-                        if (elDesk) elDesk.innerText = current;
-                    }
-                }, stepTime);
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Fade in elements with .anim-item class inside this section
+                const animItems = entry.target.querySelectorAll('.anim-item');
+                animItems.forEach(item => {
+                    item.classList.remove('opacity-0', 'translate-y-12');
+                });
+
+                // Trigger Number Counter Animation (if this is the journey section)
+                if (entry.target.id === 'journey-section' && !counterAnimated) {
+                    counterAnimated = true;
+                    const elMob = document.getElementById('counter-value-mob');
+                    const elDesk = document.getElementById('counter-value-desk');
+                    
+                    let current = 0;
+                    const target = 280;
+                    const duration = 3500;
+                    const steps = 70;
+                    const stepTime = duration / steps;
+                    const increment = target / steps;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            if (elMob) elMob.innerText = target;
+                            if (elDesk) elDesk.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            if (elMob) elMob.innerText = Math.floor(current);
+                            if (elDesk) elDesk.innerText = Math.floor(current);
+                        }
+                    }, stepTime);
+                }
             }
-        }
+        });
+    }, observerOptions);
 
-        window.addEventListener('scroll', animateCounter);
-        window.addEventListener('DOMContentLoaded', animateCounter);
+    // Observe both Section 3 and Testimonials Section
+    const journeySection = document.getElementById('journey-section');
+    const testimonialsSection = document.getElementById('testimonials-section');
+
+    if (journeySection) sectionObserver.observe(journeySection);
+    if (testimonialsSection) sectionObserver.observe(testimonialsSection);
 
         // Gallery Modal Data & Functions
         const galleryData = {
@@ -833,7 +1103,13 @@
             'gallery11': { title: 'Burj View', tag: 'Burj Khalifa Backdrop', desc: 'Iconic architecture framing the couple in crisp, high-definition clarity.', img: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80' },
             'gallery12': { title: 'Coastal Serenity', tag: 'Jumeirah Beach', desc: 'Soft ocean waves and morning sunlight along the coast.', img: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1200&q=80' },
             'gallery13': { title: 'Yacht Charter', tag: 'Atlantis Horizon', desc: 'Exclusive nautical setting with open sea views.', img: 'https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80' },
-            'gallery14': { title: 'Timeless Grace', tag: 'Downtown Dubai', desc: 'Poised portraiture emphasizing authentic emotion and romance.', img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80' }
+            'gallery14': { title: 'Timeless Grace', tag: 'Downtown Dubai', desc: 'Poised portraiture emphasizing authentic emotion and romance.', img: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80' },
+            'dest1': { title: 'Burj Khalifa Skyline Shoot', tag: 'Iconic Landmark', desc: 'Framed against the towering majesty of the Burj Khalifa, capturing high-definition romantic elegance in Downtown Dubai.', img: 'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&q=80' },
+            'dest2': { title: 'Dubai Desert Golden Dunes', tag: 'Golden Hour', desc: 'Endless rolling sand dunes providing breathtaking sunset backdrops and warm cinematic framing.', img: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80' },
+            'dest3': { title: 'Palm Jumeirah Coastal Luxury', tag: 'Coastal Horizon', desc: 'Overlooking the serene turquoise waters of the Gulf and luxurious resort architecture.', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80' },
+            'dest4': { title: 'Dubai Marina Evening Lights', tag: 'Marina Skyline', desc: 'Glittering evening city lights reflecting off luxury yachts and high-rise towers.', img: 'https://images.unsplash.com/photo-1545232979-fbf9e2c554f8?auto=format&fit=crop&w=1200&q=80' },
+            'dest5': { title: 'Miracle Garden Floral Paradise', tag: 'Botanical Romance', desc: 'Surrounded by cascading floral displays and vibrant colors in full seasonal bloom.', img: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80' },
+            'dest6': { title: 'Atlantis Royal Horizon', tag: 'Exclusive Resort', desc: 'Breathtaking architecture and oceanic splendor setting the stage for a luxury pre-wedding session.', img: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80' },
         };
 
         function openGalleryModal(id) {
@@ -905,16 +1181,16 @@
                     <p class="text-xs text-neutral-600 mb-4">Are you a passionate photographer, videographer, drone pilot, or editor? Submit your application below.</p>
                     <form id="career-form" class="space-y-4">
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Full Name *</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Full Name *</label>
                             <input type="text" name="Full Name" required placeholder="e.g. Rahul Verma" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Phone / WhatsApp *</label>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Phone / WhatsApp *</label>
                                 <input type="tel" name="Phone" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Applying For *</label>
+                                <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Applying For *</label>
                                 <select name="Applying For" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                                     <option>Photographer</option>
                                     <option>Cinematographer / Videographer</option>
@@ -924,14 +1200,14 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Portfolio / Instagram Link *</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Portfolio / Instagram Link *</label>
                             <input type="url" name="Portfolio / Instagram Link" required placeholder="https://instagram.com/yourportfolio" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black">
                         </div>
                         <div>
-                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1">Cover Note / Experience</label>
+                            <label class="block text-[10px] uppercase tracking-widest font-semibold text-neutral-700 mb-1" style="font-family: 'Montserrat', sans-serif;">Cover Note / Experience</label>
                             <textarea name="Cover Note / Experience" rows="3" placeholder="Tell us about your gear, experience, and why you'd love to join..." class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-black"></textarea>
                         </div>
-                        <button type="submit" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
+                        <button type="submit" style="font-family: 'Montserrat', sans-serif;" class="w-full py-3.5 bg-black text-white text-xs font-semibold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-colors shadow-md cursor-pointer">
                             Submit Application
                         </button>
                     </form>
@@ -968,13 +1244,13 @@
                 description: 'Set against the majestic dunes of the Dubai desert, this cinematic film captures the quiet warmth of sunset as golden light wraps around the couple. With sweeping drone shots and intimate framing, it preserves a timeless romance.'
             },
             'film2': {
-                title: 'Abhineet & Prakriti',
+                title: 'Dhruvil & Zalak',
                 subtitle: 'Downtown Dubai Skyline Story',
                 image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
                 description: 'A vibrant urban narrative filmed across the bustling boulevards and high-fashion backdrops of Downtown Dubai and the Marina. This film balances high-end glamour with effortless, candid laughter.'
             },
             'film3': {
-                title: 'Sanyam & Sanskruti',
+                title: 'Raghav & Garima',
                 subtitle: 'Royal Yacht & Marina Elegance',
                 image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80',
                 description: 'An exclusive private yacht charter across the turquoise waters of the Arabian Gulf. Featuring shimmering reflections, gentle ocean breezes, and breathtaking views of the Atlantis horizon.'
@@ -1030,6 +1306,78 @@
                     });
             }
         });
+    </script>
+
+    <!-- Cinematic Video Modal & MP4 Streaming Handler -->
+    <script>
+        const videoLibrary = {
+            'film1': {
+                title: 'Aakansha & Gervais',
+                subtitle: 'Desert Golden Hour Feature',
+                src: 'cinematic1.mp4' // Change to your actual file path/URL
+            },
+            'film2': {
+                title: 'Abhineet & Prakriti',
+                subtitle: 'Downtown Dubai Skyline Story',
+                src: 'cinematic2.mp4' // Change to your actual file path/URL
+            },
+            'film3': {
+                title: 'Sanyam & Sanskruti',
+                subtitle: 'Royal Yacht & Marina Elegance',
+                src: 'cinematic4.mp4' // Change to your actual file path/URL
+            },
+            'film4': {
+                title: 'Mansimran & Manjot',
+                subtitle: 'Historic Al Fahidi Romance',
+                src: 'cinematic 3.mp4' // Change to your actual file path/URL
+            }
+        };
+
+        function openVideoModal(filmId) {
+            const film = videoLibrary[filmId];
+            if (!film) return;
+
+            let modal = document.getElementById('cinematicVideoModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'cinematicVideoModal';
+                modal.className = 'hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4';
+                modal.innerHTML = `
+                    <button onclick="closeVideoModal()" class="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors z-50 cursor-pointer" aria-label="Close video">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                    <div class="max-w-4xl w-full flex flex-col items-center justify-center text-center relative px-4">
+                        <div class="w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl mb-4 flex items-center justify-center">
+                            <video id="modalVideoPlayer" src="" controls autoplay class="w-full h-full object-contain"></video>
+                        </div>
+                        <h3 id="modalVideoTitle" class="font-serif text-2xl text-white tracking-wide" style="font-family: 'Cormorant Garamond', serif;"></h3>
+                        <p id="modalVideoSubtitle" class="text-xs uppercase tracking-widest text-neutral-400 mt-1" style="font-family: 'Montserrat', sans-serif;"></p>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeVideoModal();
+                });
+            }
+
+            document.getElementById('modalVideoPlayer').src = film.src;
+            document.getElementById('modalVideoTitle').textContent = film.title;
+            document.getElementById('modalVideoSubtitle').textContent = film.subtitle;
+            modal.classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('cinematicVideoModal');
+            if (modal) {
+                const player = document.getElementById('modalVideoPlayer');
+                if (player) {
+                    player.pause();
+                    player.currentTime = 0;
+                }
+                modal.classList.add('hidden');
+            }
+        }
     </script>
 </body>
 </html>
