@@ -56,6 +56,13 @@
             pointer-events: auto;
             display: flex;
         }
+        img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
     </style>
 </head>
 <body class="bg-custom-cream text-black antialiased selection:bg-black selection:text-white" style="font-family: 'Inter', sans-serif;">
@@ -791,5 +798,22 @@
             }
         });
     </script>
+    <script>
+    // Disable Right-Click Context Menu
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Prevent keyboard shortcuts for saving/inspecting
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+            (e.ctrlKey && (e.key === 'u' || e.key === 's'))
+        ) {
+            e.preventDefault();
+        }
+    });
+</script>
 </body>
 </html>
