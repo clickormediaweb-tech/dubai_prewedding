@@ -27,6 +27,13 @@
             opacity: 0;
             pointer-events: none;
         }
+        img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
     </style>
 </head>
 <body class="bg-[#F6F3EC] text-black antialiased selection:bg-black selection:text-white">
@@ -136,6 +143,22 @@
     <footer class="bg-black text-[#F6F3EC] py-12 px-6 text-center text-xs tracking-[0.2em] uppercase font-montserrat">
         <p>&copy; 2026 Dubai Pre Wedding Shoot. All rights reserved.</p>
     </footer>
+<script>
+    // Disable Right-Click Context Menu
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
 
+    // Prevent keyboard shortcuts for saving/inspecting
+    document.addEventListener('keydown', function(e) {
+        if (
+            e.key === 'F12' || 
+            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+            (e.ctrlKey && (e.key === 'u' || e.key === 's'))
+        ) {
+            e.preventDefault();
+        }
+    });
+</script>
 </body>
 </html>
